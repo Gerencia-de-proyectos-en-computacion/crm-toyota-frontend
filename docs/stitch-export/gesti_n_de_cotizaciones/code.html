@@ -1,0 +1,688 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Cotizaciones — [Nombre del Taller Automotriz]</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#15803D',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#B45309',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'info': '#0369A1',
+        'on-info': '#FFFFFF',
+        'info-container': '#E0F2FE',
+        'on-info-container': '#0C4A6E',
+        'whatsapp': '#16A34A',
+        'on-whatsapp': '#272727',
+        'light-primary': '#DC2626',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#FEE2E2',
+        'light-on-primary-container': '#991B1B',
+        'light-secondary': '#334155',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#E2E8F0',
+        'light-on-secondary-container': '#1E293B',
+        'light-tertiary': '#005E8D',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#E0F2FE',
+        'light-on-tertiary-container': '#003450',
+        'light-error': '#B91C1C',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FEE2E2',
+        'light-on-error-container': '#7F1D1D',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#0F172A',
+        'light-surface': '#F8FAFC',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F1F5F9',
+        'light-surface-container': '#E2E8F0',
+        'light-surface-container-high': '#CBD5E1',
+        'light-surface-container-highest': '#94A3B8',
+        'light-on-surface': '#0F172A',
+        'light-surface-variant': '#F1F5F9',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+        'light-inverse-surface': '#0F172A',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#FCA5A5',
+        'dark-primary': '#F87171',
+        'dark-on-primary': '#450A0A',
+        'dark-primary-container': '#991B1B',
+        'dark-on-primary-container': '#FEE2E2',
+        'dark-secondary': '#94A3B8',
+        'dark-on-secondary': '#0F172A',
+        'dark-secondary-container': '#334155',
+        'dark-on-secondary-container': '#F1F5F9',
+        'dark-tertiary': '#7DD3FC',
+        'dark-on-tertiary': '#082F49',
+        'dark-tertiary-container': '#0369A1',
+        'dark-on-tertiary-container': '#E0F2FE',
+        'dark-error': '#FCA5A5',
+        'dark-on-error': '#450A0A',
+        'dark-error-container': '#7F1D1D',
+        'dark-on-error-container': '#FEE2E2',
+        'dark-background': '#0F172A',
+        'dark-on-background': '#F8FAFC',
+        'dark-surface': '#0F172A',
+        'dark-surface-dim': '#020617',
+        'dark-surface-bright': '#1E293B',
+        'dark-surface-container-lowest': '#020617',
+        'dark-surface-container-low': '#1E293B',
+        'dark-surface-container': '#334155',
+        'dark-surface-container-high': '#475569',
+        'dark-surface-container-highest': '#64748B',
+        'dark-on-surface': '#F8FAFC',
+        'dark-surface-variant': '#1E293B',
+        'dark-on-surface-variant': '#CBD5E1',
+        'dark-outline': '#94A3B8',
+        'dark-outline-variant': '#334155',
+        'dark-inverse-surface': '#F8FAFC',
+        'dark-inverse-on-surface': '#0F172A',
+        'dark-inverse-primary': '#DC2626',
+      },
+      borderRadius: {
+        'xs': '4px',
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '10px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '16px',
+        'page-margin': '12px',
+      },
+      fontFamily: {
+        'display': ['"Alatsi"', 'sans-serif'],
+        'headline': ['"Instrument Sans"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['32px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '400' }],
+        'headline-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['16px', { lineHeight: '22px', letterSpacing: '-0.1px', fontWeight: '700' }],
+        'title-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['11px', { lineHeight: '14px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Alatsi&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .pos-scroll::-webkit-scrollbar { width: 5px; height: 5px; }
+    .pos-scroll::-webkit-scrollbar-track { background: transparent; }
+    .pos-scroll::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] w-full flex bg-light-background" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Collapsible Compact Sidebar (64px default) — Shell Parity -->
+    <aside id="pos-sidebar" aria-label="Navegación principal" class="w-16 shrink-0 min-h-[1024px] bg-light-surface-container-lowest border-r border-light-outline-variant flex flex-col justify-between py-gutter-sm transition-colors duration-state-change" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col items-center gap-gutter-sm px-gutter-xs">
+        <div class="w-full flex items-center justify-center h-9 mb-gutter-xs">
+          <button id="sidebar-toggle-btn" type="button" aria-label="Contraer o expandir menú lateral" title="Expandir menú" class="w-10 h-9 rounded-sm bg-light-primary text-light-on-primary flex items-center justify-center hover:opacity-90 transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">directions_car</span>
+          </button>
+        </div>
+
+        <nav class="w-full flex flex-col gap-gutter-xs" aria-label="Módulos POS">
+          <a href="#cotizaciones" aria-current="page" title="Gestión de Cotizaciones" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm bg-light-primary-container text-light-on-primary-container font-label text-label-md">
+            <span class="material-symbols-outlined text-[20px] shrink-0" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">receipt_long</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Cotizaciones</span>
+          </a>
+
+          <a href="#vehiculos" title="Clientes y Vehículos" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">garage</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Vehículos</span>
+          </a>
+
+          <a href="#repuestos" title="Inventario y Pronóstico ML" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">inventory_2</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Repuestos</span>
+          </a>
+
+          <a href="#ordenes" title="Órdenes de Servicio" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">build</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Órdenes</span>
+          </a>
+
+          <a href="#reportes" title="Reportes" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">bar_chart</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Reportes</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex flex-col items-center gap-gutter-xs px-gutter-xs">
+        <a href="#configuracion" title="Configuración" class="nav-item w-full flex items-center justify-center gap-gutter-sm h-9 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-[18px] shrink-0" aria-hidden="true">settings</span>
+          <span class="nav-label hidden truncate" data-design-text-token="label-md">Ajustes</span>
+        </a>
+        <button id="collapse-rail-btn" type="button" aria-label="Alternar barra lateral" title="Expandir barra" class="w-full flex items-center justify-center h-8 rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface transition-colors duration-state-change">
+          <span id="collapse-icon" class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Shell -->
+    <div class="flex-1 min-w-0 flex flex-col">
+
+      <!-- Top Bar (48px) — Shell Parity -->
+      <header class="h-12 shrink-0 bg-light-surface-container-lowest border-b border-light-outline-variant px-gutter-lg flex items-center justify-between gap-gutter-md">
+        <div class="flex items-center gap-gutter-md min-w-0">
+          <div class="flex items-center gap-gutter-sm min-w-0">
+            <span class="w-2 h-5 rounded-xs bg-light-primary shrink-0" aria-hidden="true"></span>
+            <h1 class="font-headline text-headline-md text-light-on-surface truncate" data-design-text-token="headline-md">
+              [Nombre del Taller Automotriz]
+            </h1>
+          </div>
+
+          <span data-component-id="badge-role" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center px-2 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase tracking-wider shrink-0">
+            <span data-design-text-token="label-sm">RECEPCIONISTA</span>
+          </span>
+
+          <div class="hidden md:flex items-center gap-1.5 pl-gutter-sm border-l border-light-outline-variant text-light-on-surface-variant">
+            <span class="w-2 h-2 rounded-full bg-success shrink-0" aria-hidden="true"></span>
+            <span class="font-body text-body-sm" data-design-text-token="body-sm">Sesión activa: Carlos Mendoza • Caja 02</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-gutter-sm shrink-0">
+          <span id="autosave-pill" data-component-id="badge-autosave" data-component-type="badge" data-component-variant="success" role="status" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success-container text-on-success-container font-label text-label-sm">
+            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">cloud_done</span>
+            <span data-design-text-token="label-sm">Borrador autoguardado hace 5s</span>
+          </span>
+        </div>
+      </header>
+
+      <!-- Main CRM Quotes Workspace -->
+      <main class="flex-1 min-w-0 p-gutter-md flex flex-col gap-gutter-md">
+
+        <!-- Title & Actions Header -->
+        <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-gutter-lg py-gutter-sm flex items-center justify-between gap-gutter-md flex-wrap">
+          <div>
+            <h2 class="font-headline text-headline-lg text-light-on-surface" data-design-text-token="headline-lg">
+              Gestión de Cotizaciones de Mostrador
+            </h2>
+            <p class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">
+              Seguimiento de proformas emitidas, validación de stock y conversión a venta
+            </p>
+          </div>
+
+          <div class="flex items-center gap-gutter-sm">
+            <button type="button" onclick="openModalA(&#39;COT-2026-00042&#39;)" class="h-8 px-gutter-md rounded-sm bg-warning-container text-on-warning-container font-label text-label-sm hover:opacity-90 transition-colors duration-state-change">
+              <span data-design-text-token="label-sm">Simular Conflicto 409</span>
+            </button>
+            <button type="button" onclick="openModalB(&#39;COT-2026-00041&#39;)" class="h-8 px-gutter-md rounded-sm bg-light-surface-container-low border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container transition-colors duration-state-change">
+              <span data-design-text-token="label-sm">Simular Rechazo</span>
+            </button>
+            <button type="button" onclick="showToast(&#39;Abriendo nueva cotización POS...&#39;)" data-component-id="button-new-quote" data-component-type="button" data-component-variant="primary" class="inline-flex items-center gap-1.5 h-9 px-gutter-lg rounded-sm bg-light-primary text-light-on-primary font-label text-label-lg hover:opacity-90 transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">add</span>
+              <span data-design-text-token="label-lg">Nueva Cotización</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Card with Filter Tabs & Search -->
+        <section aria-label="Listado de cotizaciones" data-component-id="card-quotes-list" data-component-type="card" data-component-variant="outlined" class="flex-1 bg-light-surface-container-lowest border border-light-outline-variant rounded flex flex-col overflow-hidden">
+          <!-- Filter Tabs & Search Toolbar -->
+          <div class="px-gutter-md pt-gutter-sm border-b border-light-outline-variant flex items-center justify-between gap-gutter-md flex-wrap">
+            <div role="tablist" aria-label="Filtrar cotizaciones por estado" class="flex items-center gap-gutter-md">
+              <button type="button" role="tab" aria-selected="true" data-tab="ALL" class="quote-tab pb-gutter-sm border-b-2 border-light-primary text-light-primary font-label text-label-lg transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Todas (6)</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-tab="Pendiente" class="quote-tab pb-gutter-sm border-b-2 border-transparent text-light-on-surface-variant hover:text-light-on-surface font-label text-label-lg transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Pendientes (2)</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-tab="Aprobada" class="quote-tab pb-gutter-sm border-b-2 border-transparent text-light-on-surface-variant hover:text-light-on-surface font-label text-label-lg transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Aprobadas (2)</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-tab="Cerrada" class="quote-tab pb-gutter-sm border-b-2 border-transparent text-light-on-surface-variant hover:text-light-on-surface font-label text-label-lg transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Cerradas (1)</span>
+              </button>
+              <button type="button" role="tab" aria-selected="false" data-tab="Rechazada" class="quote-tab pb-gutter-sm border-b-2 border-transparent text-light-on-surface-variant hover:text-light-on-surface font-label text-label-lg transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Rechazadas (1)</span>
+              </button>
+            </div>
+
+            <label class="relative flex items-center w-72 pb-gutter-xs">
+              <span class="sr-only">Buscar por código de cotización, placa o DNI</span>
+              <span class="material-symbols-outlined text-[16px] text-light-on-surface-variant absolute left-2.5 top-2 pointer-events-none" aria-hidden="true">search</span>
+              <input id="quote-search-input" type="search" placeholder="Buscar COT-2026, placa o DNI..." class="w-full h-8 pl-8 pr-3 rounded-sm border border-light-outline-variant bg-light-surface-container-low font-body text-body-sm text-light-on-surface placeholder:text-light-on-surface-variant focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            </label>
+          </div>
+
+          <!-- Compact CRM Table -->
+          <div class="pos-scroll overflow-y-auto max-h-[505px]">
+            <table class="w-full border-collapse text-left table-fixed">
+              <thead class="sticky top-0 z-10 bg-light-surface-container-low border-b border-light-outline-variant">
+                <tr>
+                  <th scope="col" class="w-[14%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">N° Proforma</th>
+                  <th scope="col" class="w-[13%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Fecha / Vigencia</th>
+                  <th scope="col" class="w-[17%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Cliente</th>
+                  <th scope="col" class="w-[19%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Vehículo Toyota</th>
+                  <th scope="col" class="w-[11%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Total S/ (inc. IGV)</th>
+                  <th scope="col" class="w-[10%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-center">Estado</th>
+                  <th scope="col" class="w-[16%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="quotes-table-body" class="divide-y divide-light-outline-variant">
+                <!-- Row 1: Pendiente (with stock conflict on approve) -->
+                <tr data-status="Pendiente" data-search="COT-2026-00042 Luis Paredes 44821903 ABC-123 Yaris" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2.5 align-middle font-mono text-mono-md text-light-on-surface" data-design-text-token="mono-md">COT-2026-00042</td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-body text-body-sm text-light-on-surface">24 Nov 2026</div>
+                    <div class="font-body text-body-sm text-light-on-surface-variant">Vence: 01 Dic</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Luis Paredes</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant">DNI 44821903</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded-xs bg-light-on-surface text-light-surface-bright font-mono text-mono-sm">ABC-123</span>
+                      <span class="font-body text-body-sm text-light-on-surface truncate">Yaris 1.5 CVT</span>
+                    </div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface">S/ 480.00</td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-container text-on-warning-container font-label text-label-sm">Pendiente</span>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right">
+                    <div class="inline-flex items-center justify-end gap-1">
+                      <button type="button" onclick="showToast(&#39;Editando COT-2026-00042&#39;)" title="Editar" aria-label="Editar proforma" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">edit</span></button>
+                      <button type="button" onclick="openModalA(&#39;COT-2026-00042&#39;)" title="Aprobar" aria-label="Aprobar proforma" class="w-7 h-7 rounded-xs bg-light-primary text-light-on-primary hover:opacity-90 inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">check</span></button>
+                      <button type="button" onclick="openModalB(&#39;COT-2026-00042&#39;)" title="Rechazar" aria-label="Rechazar proforma" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-error hover:bg-light-error-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">close</span></button>
+                      <button type="button" onclick="showToast(&#39;Descargando PDF...&#39;)" title="PDF" aria-label="Descargar PDF" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">picture_as_pdf</span></button>
+                      <button type="button" onclick="showToast(&#39;Enviado por WhatsApp&#39;)" title="WhatsApp" aria-label="Enviar por WhatsApp" class="w-7 h-7 rounded-xs bg-success text-on-success hover:opacity-90 inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">chat</span></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 2: Pendiente -->
+                <tr data-status="Pendiente" data-search="COT-2026-00041 Transportes del Sur 20512345678 F4T-891 Hilux" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2.5 align-middle font-mono text-mono-md text-light-on-surface">COT-2026-00041</td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-body text-body-sm text-light-on-surface">24 Nov 2026</div>
+                    <div class="font-body text-body-sm text-light-on-surface-variant">Vence: 01 Dic</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Transp. del Sur SAC</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant">RUC 20512345678</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded-xs bg-light-on-surface text-light-surface-bright font-mono text-mono-sm">F4T-891</span>
+                      <span class="font-body text-body-sm text-light-on-surface truncate">Hilux 2.8 4x4</span>
+                    </div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface">S/ 1,420.00</td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-container text-on-warning-container font-label text-label-sm">Pendiente</span>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right">
+                    <div class="inline-flex items-center justify-end gap-1">
+                      <button type="button" onclick="showToast(&#39;Editando COT-2026-00041&#39;)" title="Editar" aria-label="Editar proforma" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">edit</span></button>
+                      <button type="button" onclick="openModalA(&#39;COT-2026-00041&#39;)" title="Aprobar" aria-label="Aprobar proforma" class="w-7 h-7 rounded-xs bg-light-primary text-light-on-primary hover:opacity-90 inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">check</span></button>
+                      <button type="button" onclick="openModalB(&#39;COT-2026-00041&#39;)" title="Rechazar" aria-label="Rechazar proforma" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-error hover:bg-light-error-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">close</span></button>
+                      <button type="button" onclick="showToast(&#39;Descargando PDF...&#39;)" title="PDF" aria-label="Descargar PDF" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">picture_as_pdf</span></button>
+                      <button type="button" onclick="showToast(&#39;Enviado por WhatsApp&#39;)" title="WhatsApp" aria-label="Enviar por WhatsApp" class="w-7 h-7 rounded-xs bg-success text-on-success hover:opacity-90 inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">chat</span></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 3: Aprobada -->
+                <tr data-status="Aprobada" data-search="COT-2026-00040 María Fernanda Quispe 70921844 B8K-312 Corolla" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2.5 align-middle font-mono text-mono-md text-light-on-surface">COT-2026-00040</td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-body text-body-sm text-light-on-surface">23 Nov 2026</div>
+                    <div class="font-body text-body-sm text-light-on-surface-variant">Vence: 30 Nov</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">María F. Quispe</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant">DNI 70921844</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded-xs bg-light-on-surface text-light-surface-bright font-mono text-mono-sm">B8K-312</span>
+                      <span class="font-body text-body-sm text-light-on-surface truncate">Corolla 1.8 HEV</span>
+                    </div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface">S/ 635.00</td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm">Aprobada</span>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right">
+                    <div class="inline-flex items-center justify-end gap-1">
+                      <button type="button" onclick="showToast(&#39;Descargando PDF...&#39;)" title="PDF" aria-label="Descargar PDF" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">picture_as_pdf</span></button>
+                      <button type="button" onclick="showToast(&#39;Enviado por WhatsApp&#39;)" title="WhatsApp" aria-label="Enviar por WhatsApp" class="w-7 h-7 rounded-xs bg-success text-on-success hover:opacity-90 inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">chat</span></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 4: Aprobada -->
+                <tr data-status="Aprobada" data-search="COT-2026-00039 Jorge Chávez 09841233 D3R-504 RAV4" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2.5 align-middle font-mono text-mono-md text-light-on-surface">COT-2026-00039</td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-body text-body-sm text-light-on-surface">22 Nov 2026</div>
+                    <div class="font-body text-body-sm text-light-on-surface-variant">Vence: 29 Nov</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Jorge Chávez R.</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant">DNI 09841233</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded-xs bg-light-on-surface text-light-surface-bright font-mono text-mono-sm">D3R-504</span>
+                      <span class="font-body text-body-sm text-light-on-surface truncate">RAV4 2.5 AWD</span>
+                    </div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface">S/ 940.00</td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm">Aprobada</span>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right">
+                    <div class="inline-flex items-center justify-end gap-1">
+                      <button type="button" onclick="showToast(&#39;Descargando PDF...&#39;)" title="PDF" aria-label="Descargar PDF" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">picture_as_pdf</span></button>
+                      <button type="button" onclick="showToast(&#39;Enviado por WhatsApp&#39;)" title="WhatsApp" aria-label="Enviar por WhatsApp" class="w-7 h-7 rounded-xs bg-success text-on-success hover:opacity-90 inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">chat</span></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 5: Cerrada -->
+                <tr data-status="Cerrada" data-search="COT-2026-00038 Inversiones Andinas 20488912301 C9L-118 Fortuner" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2.5 align-middle font-mono text-mono-md text-light-on-surface">COT-2026-00038</td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-body text-body-sm text-light-on-surface">21 Nov 2026</div>
+                    <div class="font-body text-body-sm text-light-on-surface-variant">Facturada</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Inv. Andinas EIRL</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant">RUC 20488912301</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded-xs bg-light-on-surface text-light-surface-bright font-mono text-mono-sm">C9L-118</span>
+                      <span class="font-body text-body-sm text-light-on-surface truncate">Fortuner 2.8</span>
+                    </div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface">S/ 1,890.00</td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm">Cerrada</span>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right">
+                    <div class="inline-flex items-center justify-end gap-1">
+                      <button type="button" onclick="showToast(&#39;Descargando PDF...&#39;)" title="PDF" aria-label="Descargar PDF" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">picture_as_pdf</span></button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 6: Rechazada -->
+                <tr data-status="Rechazada" data-search="COT-2026-00037 Ricardo Mendoza 41209381 A7P-440 Etios" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2.5 align-middle font-mono text-mono-md text-light-on-surface">COT-2026-00037</td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-body text-body-sm text-light-on-surface">20 Nov 2026</div>
+                    <div class="font-body text-body-sm text-light-on-surface-variant">Falta de Stock</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Ricardo Mendoza</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant">DNI 41209381</div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle">
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded-xs bg-light-on-surface text-light-surface-bright font-mono text-mono-sm">A7P-440</span>
+                      <span class="font-body text-body-sm text-light-on-surface truncate">Etios 1.5 Sedan</span>
+                    </div>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant">S/ 310.00</td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-light-error-container text-light-on-error-container font-label text-label-sm">Rechazada</span>
+                  </td>
+                  <td class="px-gutter-sm py-2.5 align-middle text-right">
+                    <div class="inline-flex items-center justify-end gap-1">
+                      <button type="button" onclick="showToast(&#39;Descargando PDF...&#39;)" title="PDF" aria-label="Descargar PDF" class="w-7 h-7 rounded-xs border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center"><span class="material-symbols-outlined text-[15px]">picture_as_pdf</span></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL A: Stock Conflict Warning 409 -->
+  <div id="modal-a" role="dialog" aria-modal="true" aria-labelledby="modal-a-title" class="hidden fixed inset-0 z-50 bg-light-on-surface/50 flex items-center justify-center p-gutter-lg">
+    <div class="w-full max-w-lg bg-light-surface-container-lowest border border-light-outline-variant rounded shadow-lg overflow-hidden">
+      <header class="px-gutter-lg py-gutter-md bg-light-error-container border-b border-light-outline-variant flex items-center justify-between gap-gutter-sm">
+        <div class="flex items-center gap-gutter-sm">
+          <span class="material-symbols-outlined text-[22px] text-light-error" aria-hidden="true">error</span>
+          <div>
+            <span class="font-mono text-mono-sm text-light-on-error-container uppercase">Error 409 • Conflicto de Stock</span>
+            <h3 id="modal-a-title" class="font-headline text-headline-md text-light-on-error-container">
+              No se puede aprobar: Stock insuficiente
+            </h3>
+          </div>
+        </div>
+        <button type="button" onclick="closeModals()" aria-label="Cerrar modal" class="w-7 h-7 rounded-xs text-light-on-error-container hover:bg-light-surface-container-lowest/40 inline-flex items-center justify-center">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </header>
+
+      <div class="p-gutter-lg flex flex-col gap-gutter-md">
+        <!-- Missing OEM Part -->
+        <div class="p-gutter-md rounded-sm bg-light-surface-container-low border border-light-outline-variant flex items-center justify-between gap-gutter-sm">
+          <div>
+            <div class="font-title text-title-sm text-light-on-surface">Pastillas de Freno Delanteras (AISIN)</div>
+            <div class="font-mono text-mono-sm text-light-on-surface-variant">OEM: 04465-0D150 • SKU: AIS-PAD-0D1</div>
+          </div>
+          <div class="flex items-center gap-gutter-sm shrink-0">
+            <span class="px-2 py-0.5 rounded-xs bg-light-surface-container text-light-on-surface font-mono text-mono-sm">Solicitado: 2</span>
+            <span class="px-2 py-0.5 rounded-xs bg-light-error-container text-light-on-error-container font-mono text-mono-sm">Disponible: 0</span>
+          </div>
+        </div>
+
+        <!-- Compatible Equivalents Box -->
+        <div class="p-gutter-md rounded-sm bg-info-container border border-light-outline-variant flex flex-col gap-gutter-sm">
+          <div class="flex items-center gap-1.5 text-on-info-container">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">swap_horiz</span>
+            <span class="font-title text-title-sm">Equivalentes compatibles con stock inmediato</span>
+          </div>
+
+          <div class="flex flex-col gap-gutter-xs">
+            <div class="p-gutter-sm rounded-xs bg-light-surface-container-lowest border border-light-outline-variant flex items-center justify-between gap-gutter-sm">
+              <div>
+                <div class="font-title text-title-sm text-light-on-surface">TOYOTA OEM (04465-52320)</div>
+                <div class="font-mono text-mono-sm text-light-on-surface-variant">S/ 190.00 • Stock: 9 u.</div>
+              </div>
+              <button type="button" onclick="closeModals(); showToast(&#39;Sustituido por TOYOTA OEM y proforma aprobada&#39;)" class="h-7 px-gutter-md rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 shrink-0">
+                Sustituir en Cotización
+              </button>
+            </div>
+
+            <div class="p-gutter-sm rounded-xs bg-light-surface-container-lowest border border-light-outline-variant flex items-center justify-between gap-gutter-sm">
+              <div>
+                <div class="font-title text-title-sm text-light-on-surface">DENSO Ceramic (DEN-PAD-523)</div>
+                <div class="font-mono text-mono-sm text-light-on-surface-variant">S/ 175.00 • Stock: 6 u.</div>
+              </div>
+              <button type="button" onclick="closeModals(); showToast(&#39;Sustituido por DENSO Ceramic y proforma aprobada&#39;)" class="h-7 px-gutter-md rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 shrink-0">
+                Sustituir en Cotización
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="px-gutter-lg py-gutter-sm border-t border-light-outline-variant bg-light-surface-container-low flex justify-end">
+        <button type="button" onclick="closeModals()" class="h-8 px-gutter-md rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-md hover:bg-light-surface-container">
+          Cerrar
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- MODAL B: Reject Quote -->
+  <div id="modal-b" role="dialog" aria-modal="true" aria-labelledby="modal-b-title" class="hidden fixed inset-0 z-50 bg-light-on-surface/50 flex items-center justify-center p-gutter-lg">
+    <div class="w-full max-w-md bg-light-surface-container-lowest border border-light-outline-variant rounded shadow-lg overflow-hidden">
+      <header class="px-gutter-lg py-gutter-md border-b border-light-outline-variant bg-light-surface-container-low flex items-center justify-between">
+        <div>
+          <h3 id="modal-b-title" class="font-headline text-headline-md text-light-on-surface">Rechazar Cotización</h3>
+          <p id="modal-b-subtitle" class="font-mono text-mono-sm text-light-on-surface-variant">COT-2026-00041</p>
+        </div>
+        <button type="button" onclick="closeModals()" aria-label="Cerrar modal" class="w-7 h-7 rounded-xs text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </header>
+
+      <div class="p-gutter-lg flex flex-col gap-gutter-md">
+        <div>
+          <span class="block font-label text-label-md text-light-on-surface mb-gutter-xs">Motivo de Rechazo (Obligatorio)</span>
+          <div class="grid grid-cols-2 gap-gutter-sm">
+            <label class="p-gutter-sm rounded-sm border-2 border-light-primary bg-light-primary-container/30 flex items-center gap-gutter-xs cursor-pointer">
+              <input type="radio" name="reject-reason" value="Falta de Stock" checked class="text-light-primary focus:ring-light-primary">
+              <span class="font-label text-label-md text-light-on-surface">Falta de Stock</span>
+            </label>
+            <label class="p-gutter-sm rounded-sm border border-light-outline-variant bg-light-surface-container-lowest flex items-center gap-gutter-xs cursor-pointer">
+              <input type="radio" name="reject-reason" value="Precio" class="text-light-primary focus:ring-light-primary">
+              <span class="font-label text-label-md text-light-on-surface">Precio</span>
+            </label>
+            <label class="p-gutter-sm rounded-sm border border-light-outline-variant bg-light-surface-container-lowest flex items-center gap-gutter-xs cursor-pointer">
+              <input type="radio" name="reject-reason" value="Tiempo de Espera" class="text-light-primary focus:ring-light-primary">
+              <span class="font-label text-label-md text-light-on-surface">Tiempo de Espera</span>
+            </label>
+            <label class="p-gutter-sm rounded-sm border border-light-outline-variant bg-light-surface-container-lowest flex items-center gap-gutter-xs cursor-pointer">
+              <input type="radio" name="reject-reason" value="Otro" class="text-light-primary focus:ring-light-primary">
+              <span class="font-label text-label-md text-light-on-surface">Otro</span>
+            </label>
+          </div>
+        </div>
+
+        <label class="flex flex-col gap-gutter-xs">
+          <span class="font-label text-label-md text-light-on-surface">Observación adicional (opcional)</span>
+          <textarea rows="2" placeholder="Ej. Cliente indicó que volverá la próxima semana..." class="w-full rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-body text-body-sm text-light-on-surface placeholder:text-light-on-surface-variant focus:border-light-primary focus:ring-1 focus:ring-light-primary"></textarea>
+        </label>
+      </div>
+
+      <footer class="px-gutter-lg py-gutter-sm border-t border-light-outline-variant bg-light-surface-container-low flex justify-end gap-gutter-sm">
+        <button type="button" onclick="closeModals()" class="h-8 px-gutter-md rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-md hover:bg-light-surface-container">
+          Cancelar
+        </button>
+        <button type="button" onclick="closeModals(); showToast(&#39;Cotización marcada como Rechazada&#39;)" class="h-8 px-gutter-md rounded-sm bg-light-primary text-light-on-primary font-label text-label-md hover:opacity-90">
+          Confirmar Rechazo
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Toast feedback banner -->
+  <div id="pos-toast" role="status" aria-live="polite" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-gutter-lg py-gutter-sm rounded-sm bg-light-inverse-surface text-light-inverse-on-surface font-label text-label-md flex items-center gap-gutter-sm">
+    <span class="material-symbols-outlined text-[16px] text-success" aria-hidden="true">check_circle</span>
+    <span id="pos-toast-text">Acción completada</span>
+  </div>
+
+  <script>
+    function showToast(msg) {
+      const toast = document.getElementById('pos-toast');
+      document.getElementById('pos-toast-text').textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.add('hidden'), 2600);
+    }
+
+    window.openModalA = function() { document.getElementById('modal-a').classList.remove('hidden'); };
+    window.openModalB = function(code) {
+      document.getElementById('modal-b-subtitle').textContent = code || 'COT-2026-00042';
+      document.getElementById('modal-b').classList.remove('hidden');
+    };
+    window.closeModals = function() {
+      document.getElementById('modal-a').classList.add('hidden');
+      document.getElementById('modal-b').classList.add('hidden');
+    };
+
+    let activeTab = 'ALL';
+    const tabs = document.querySelectorAll('.quote-tab');
+    const searchInput = document.getElementById('quote-search-input');
+
+    function filterQuotes() {
+      const q = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('#quotes-table-body tr').forEach(row => {
+        const st = row.getAttribute('data-status');
+        const txt = (row.getAttribute('data-search') || '').toLowerCase();
+        row.style.display = ((activeTab === 'ALL' || st === activeTab) && (!q || txt.includes(q))) ? '' : 'none';
+      });
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', () => {
+        activeTab = t.getAttribute('data-tab');
+        tabs.forEach(btn => {
+          const sel = btn === t;
+          btn.setAttribute('aria-selected', sel ? 'true' : 'false');
+          btn.className = sel
+            ? 'quote-tab pb-gutter-sm border-b-2 border-light-primary text-light-primary font-label text-label-lg transition-colors duration-state-change'
+            : 'quote-tab pb-gutter-sm border-b-2 border-transparent text-light-on-surface-variant hover:text-light-on-surface font-label text-label-lg transition-colors duration-state-change';
+        });
+        filterQuotes();
+      });
+    });
+
+    searchInput.addEventListener('input', filterQuotes);
+  </script>
+
+
+</body></html>

@@ -1,0 +1,710 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario y Pronóstico ML — [Nombre del Taller Automotriz]</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#15803D',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#B45309',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'info': '#0369A1',
+        'on-info': '#FFFFFF',
+        'info-container': '#E0F2FE',
+        'on-info-container': '#0C4A6E',
+        'whatsapp': '#16A34A',
+        'on-whatsapp': '#272727',
+        'light-primary': '#DC2626',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#FEE2E2',
+        'light-on-primary-container': '#991B1B',
+        'light-secondary': '#334155',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#E2E8F0',
+        'light-on-secondary-container': '#1E293B',
+        'light-tertiary': '#005E8D',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#E0F2FE',
+        'light-on-tertiary-container': '#003450',
+        'light-error': '#B91C1C',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FEE2E2',
+        'light-on-error-container': '#7F1D1D',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#0F172A',
+        'light-surface': '#F8FAFC',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F1F5F9',
+        'light-surface-container': '#E2E8F0',
+        'light-surface-container-high': '#CBD5E1',
+        'light-surface-container-highest': '#94A3B8',
+        'light-on-surface': '#0F172A',
+        'light-surface-variant': '#F1F5F9',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+        'light-inverse-surface': '#0F172A',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#FCA5A5',
+        'dark-primary': '#F87171',
+        'dark-on-primary': '#450A0A',
+        'dark-primary-container': '#991B1B',
+        'dark-on-primary-container': '#FEE2E2',
+        'dark-secondary': '#94A3B8',
+        'dark-on-secondary': '#0F172A',
+        'dark-secondary-container': '#334155',
+        'dark-on-secondary-container': '#F1F5F9',
+        'dark-tertiary': '#7DD3FC',
+        'dark-on-tertiary': '#082F49',
+        'dark-tertiary-container': '#0369A1',
+        'dark-on-tertiary-container': '#E0F2FE',
+        'dark-error': '#FCA5A5',
+        'dark-on-error': '#450A0A',
+        'dark-error-container': '#7F1D1D',
+        'dark-on-error-container': '#FEE2E2',
+        'dark-background': '#0F172A',
+        'dark-on-background': '#F8FAFC',
+        'dark-surface': '#0F172A',
+        'dark-surface-dim': '#020617',
+        'dark-surface-bright': '#1E293B',
+        'dark-surface-container-lowest': '#020617',
+        'dark-surface-container-low': '#1E293B',
+        'dark-surface-container': '#334155',
+        'dark-surface-container-high': '#475569',
+        'dark-surface-container-highest': '#64748B',
+        'dark-on-surface': '#F8FAFC',
+        'dark-surface-variant': '#1E293B',
+        'dark-on-surface-variant': '#CBD5E1',
+        'dark-outline': '#94A3B8',
+        'dark-outline-variant': '#334155',
+        'dark-inverse-surface': '#F8FAFC',
+        'dark-inverse-on-surface': '#0F172A',
+        'dark-inverse-primary': '#DC2626',
+      },
+      borderRadius: {
+        'xs': '4px',
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '10px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '16px',
+        'page-margin': '12px',
+      },
+      fontFamily: {
+        'display': ['"Alatsi"', 'sans-serif'],
+        'headline': ['"Instrument Sans"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['32px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '400' }],
+        'headline-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['16px', { lineHeight: '22px', letterSpacing: '-0.1px', fontWeight: '700' }],
+        'title-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['11px', { lineHeight: '14px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Alatsi&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .pos-scroll::-webkit-scrollbar { width: 5px; height: 5px; }
+    .pos-scroll::-webkit-scrollbar-track { background: transparent; }
+    .pos-scroll::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
+    .pos-scroll::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+  </style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] w-full flex bg-light-background" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Collapsible Compact Sidebar (64px default) — Shell Parity -->
+    <aside id="pos-sidebar" aria-label="Navegación principal" class="w-16 shrink-0 min-h-[1024px] bg-light-surface-container-lowest border-r border-light-outline-variant flex flex-col justify-between py-gutter-sm transition-colors duration-state-change" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col items-center gap-gutter-sm px-gutter-xs">
+        <div class="w-full flex items-center justify-center h-9 mb-gutter-xs">
+          <button id="sidebar-toggle-btn" type="button" aria-label="Contraer o expandir menú lateral" title="Expandir menú" class="w-10 h-9 rounded-sm bg-light-primary text-light-on-primary flex items-center justify-center hover:opacity-90 transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">directions_car</span>
+          </button>
+        </div>
+
+        <nav class="w-full flex flex-col gap-gutter-xs" aria-label="Módulos POS">
+          <a href="#cotizaciones" title="Cotizaciones POS" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">receipt_long</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Cotizaciones</span>
+          </a>
+
+          <a href="#vehiculos" title="Clientes y Vehículos" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">garage</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Vehículos</span>
+          </a>
+
+          <a href="#repuestos" aria-current="page" title="Inventario y Pronóstico ML" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm bg-light-primary-container text-light-on-primary-container font-label text-label-md">
+            <span class="material-symbols-outlined text-[20px] shrink-0" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">inventory_2</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Repuestos</span>
+          </a>
+
+          <a href="#ordenes" title="Órdenes de Servicio" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">build</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Órdenes</span>
+          </a>
+
+          <a href="#reportes" title="Reportes" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">bar_chart</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Reportes</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex flex-col items-center gap-gutter-xs px-gutter-xs">
+        <a href="#configuracion" title="Configuración" class="nav-item w-full flex items-center justify-center gap-gutter-sm h-9 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-[18px] shrink-0" aria-hidden="true">settings</span>
+          <span class="nav-label hidden truncate" data-design-text-token="label-md">Ajustes</span>
+        </a>
+        <button id="collapse-rail-btn" type="button" aria-label="Alternar barra lateral" title="Expandir barra" class="w-full flex items-center justify-center h-8 rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface transition-colors duration-state-change">
+          <span id="collapse-icon" class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Shell -->
+    <div class="flex-1 min-w-0 flex flex-col">
+
+      <!-- Top Bar (48px) — Shell Parity -->
+      <header class="h-12 shrink-0 bg-light-surface-container-lowest border-b border-light-outline-variant px-gutter-lg flex items-center justify-between gap-gutter-md">
+        <div class="flex items-center gap-gutter-md min-w-0">
+          <div class="flex items-center gap-gutter-sm min-w-0">
+            <span class="w-2 h-5 rounded-xs bg-light-primary shrink-0" aria-hidden="true"></span>
+            <h1 class="font-headline text-headline-md text-light-on-surface truncate" data-design-text-token="headline-md">
+              [Nombre del Taller Automotriz]
+            </h1>
+          </div>
+
+          <span data-component-id="badge-role" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center px-2 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase tracking-wider shrink-0">
+            <span data-design-text-token="label-sm">RECEPCIONISTA</span>
+          </span>
+
+          <div class="hidden md:flex items-center gap-1.5 pl-gutter-sm border-l border-light-outline-variant text-light-on-surface-variant">
+            <span class="w-2 h-2 rounded-full bg-success shrink-0" aria-hidden="true"></span>
+            <span class="font-body text-body-sm" data-design-text-token="body-sm">Sesión activa: Carlos Mendoza • Caja 02</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-gutter-sm shrink-0">
+          <span id="autosave-pill" data-component-id="badge-autosave" data-component-type="badge" data-component-variant="success" role="status" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success-container text-on-success-container font-label text-label-sm">
+            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">cloud_done</span>
+            <span data-design-text-token="label-sm">Borrador autoguardado hace 5s</span>
+          </span>
+        </div>
+      </header>
+
+      <!-- Main Dashboard Workspace (1366x768 compact density, zero horizontal scroll) -->
+      <main class="flex-1 min-w-0 p-gutter-md flex flex-col gap-gutter-md">
+
+        <!-- 1. Header Row: ML Forecast Title, Timestamp, Model Health Badges & Primary CTA -->
+        <section aria-label="Cabecera de pronóstico de demanda" class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-gutter-lg py-gutter-sm flex items-center justify-between gap-gutter-md flex-wrap">
+          <div class="flex items-center gap-gutter-md flex-wrap min-w-0">
+            <div class="flex items-center gap-gutter-sm">
+              <span class="material-symbols-outlined text-[22px] text-light-primary" aria-hidden="true">query_stats</span>
+              <div>
+                <h2 class="font-headline text-headline-lg text-light-on-surface" data-design-text-token="headline-lg">
+                  Pronóstico de Demanda (Random Forest Batch)
+                </h2>
+                <p id="ml-timestamp" class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">
+                  Último cálculo: Hoy 08:00 AM • Horizonte: Próximos 30 días
+                </p>
+              </div>
+            </div>
+
+            <!-- Model Health Badges -->
+            <div class="flex items-center gap-gutter-xs flex-wrap" aria-label="Métricas de salud del modelo">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-success-container text-on-success-container font-mono text-mono-sm" data-design-text-token="mono-sm">
+                R²: 0.86
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface font-mono text-mono-sm" data-design-text-token="mono-sm">
+                WAPE: 11.4%
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface font-mono text-mono-sm" data-design-text-token="mono-sm">
+                MAPE (&gt;0): 12.1%
+              </span>
+            </div>
+          </div>
+
+          <button id="recalculate-ml-btn" type="button" data-component-id="button-recalculate-ml" data-component-type="button" data-component-variant="primary" class="inline-flex items-center gap-gutter-xs h-9 px-gutter-lg rounded-sm bg-light-primary text-light-on-primary font-label text-label-lg hover:opacity-90 transition-colors duration-state-change shrink-0">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">autorenew</span>
+            <span data-design-text-token="label-lg">Recalcular Demanda ML</span>
+          </button>
+        </section>
+
+        <!-- 2. 4 Compact KPI Cards in One Row -->
+        <section aria-label="Indicadores clave de inventario" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-md items-stretch">
+          <!-- KPI 1: Critical Risk -->
+          <article data-component-id="card-kpi-critical" data-component-type="card" data-component-variant="outlined" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded p-gutter-md flex flex-col justify-between gap-gutter-xs">
+            <span class="font-label text-label-md text-light-on-surface-variant truncate" data-design-text-token="label-md">
+              Repuestos en Riesgo Crítico (Rojo)
+            </span>
+            <div class="flex items-baseline justify-between gap-gutter-sm">
+              <span class="font-display text-display-lg tabular-nums text-light-on-surface" data-design-text-token="display-lg">7 SKUs</span>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-light-error-container text-light-on-error-container font-label text-label-sm shrink-0" data-design-text-token="label-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-light-error" aria-hidden="true"></span>
+                CRÍTICO
+              </span>
+            </div>
+          </article>
+
+          <!-- KPI 2: Preventive Alerts -->
+          <article data-component-id="card-kpi-warning" data-component-type="card" data-component-variant="outlined" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded p-gutter-md flex flex-col justify-between gap-gutter-xs">
+            <span class="font-label text-label-md text-light-on-surface-variant truncate" data-design-text-token="label-md">
+              Alertas Preventivas (Amarillo)
+            </span>
+            <div class="flex items-baseline justify-between gap-gutter-sm">
+              <span class="font-display text-display-lg tabular-nums text-light-on-surface" data-design-text-token="display-lg">14 SKUs</span>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-container text-on-warning-container font-label text-label-sm shrink-0" data-design-text-token="label-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-warning" aria-hidden="true"></span>
+                ALERTA
+              </span>
+            </div>
+          </article>
+
+          <!-- KPI 3: Lost Sales -->
+          <article data-component-id="card-kpi-lost-sales" data-component-type="card" data-component-variant="outlined" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded p-gutter-md flex flex-col justify-between gap-gutter-xs">
+            <div class="flex items-start justify-between gap-gutter-sm">
+              <span class="font-label text-label-md text-light-on-surface-variant" data-design-text-token="label-md">
+                Ventas Perdidas por Falta de Stock (S/ mes)
+              </span>
+            </div>
+            <div class="flex items-baseline justify-between gap-gutter-sm">
+              <span class="font-display text-display-lg tabular-nums text-light-primary" data-design-text-token="display-lg">S/ 4,280.00</span>
+              <span class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">19 proformas perdidas</span>
+            </div>
+          </article>
+
+          <!-- KPI 4: Quote Conversion Rate -->
+          <article data-component-id="card-kpi-conversion" data-component-type="card" data-component-variant="outlined" class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded p-gutter-md flex flex-col justify-between gap-gutter-xs">
+            <div class="flex items-start justify-between gap-gutter-sm">
+              <span class="font-label text-label-md text-light-on-surface-variant" data-design-text-token="label-md">
+                Tasa de Conversión de Cotizaciones (%)
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm shrink-0" data-design-text-token="label-sm">
+                +3.2%
+              </span>
+            </div>
+            <div class="flex items-baseline justify-between gap-gutter-sm">
+              <span class="font-display text-display-lg tabular-nums text-light-on-surface" data-design-text-token="display-lg">74.8%</span>
+              <span class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">184 / 246 aprobadas</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- 3. Main Compact Table: Alertas de Reabastecimiento por Repuesto -->
+        <section aria-labelledby="table-section-title" data-component-id="card-restock-table" data-component-type="card" data-component-variant="outlined" class="flex-1 min-h-0 bg-light-surface-container-lowest border border-light-outline-variant rounded flex flex-col overflow-hidden">
+          <!-- Table Toolbar -->
+          <div class="px-gutter-md py-gutter-sm border-b border-light-outline-variant bg-light-surface-container-low flex items-center justify-between gap-gutter-md flex-wrap">
+            <div class="flex items-center gap-gutter-sm">
+              <h2 id="table-section-title" class="font-title text-title-sm text-light-on-surface" data-design-text-token="title-sm">
+                Alertas de Reabastecimiento por Repuesto
+              </h2>
+              <span class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">
+                • Ordenado por prioridad de quiebre
+              </span>
+            </div>
+
+            <div class="flex items-center gap-gutter-sm flex-wrap">
+              <div class="flex items-center gap-gutter-xs" role="group" aria-label="Filtrar por semáforo">
+                <button type="button" data-status-filter="ALL" class="status-pill px-2.5 py-1 rounded-full bg-light-secondary text-light-on-secondary font-label text-label-sm transition-colors duration-state-change">
+                  <span data-design-text-token="label-sm">Todos (7)</span>
+                </button>
+                <button type="button" data-status-filter="CRÍTICO" class="status-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">
+                  <span data-design-text-token="label-sm">Crítico</span>
+                </button>
+                <button type="button" data-status-filter="ALERTA" class="status-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">
+                  <span data-design-text-token="label-sm">Alerta</span>
+                </button>
+                <button type="button" data-status-filter="NORMAL" class="status-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">
+                  <span data-design-text-token="label-sm">Normal</span>
+                </button>
+              </div>
+
+              <label class="relative flex items-center w-56">
+                <span class="sr-only">Buscar repuesto o código OEM</span>
+                <span class="material-symbols-outlined text-[16px] text-light-on-surface-variant absolute left-2.5 pointer-events-none" aria-hidden="true">search</span>
+                <input id="restock-search-input" type="search" placeholder="Filtrar SKU, OEM o modelo..." class="w-full h-7 pl-8 pr-2 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-body text-body-sm text-light-on-surface placeholder:text-light-on-surface-variant focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+              </label>
+            </div>
+          </div>
+
+          <!-- Compact 9-Column Table (Zero Horizontal Scroll at 1366px) -->
+          <div data-component-id="table-restock" data-component-type="table" data-component-variant="compact" class="pos-scroll overflow-y-auto max-h-[395px]">
+            <table class="w-full border-collapse text-left table-fixed">
+              <thead class="sticky top-0 z-10 bg-light-surface-container-low border-b border-light-outline-variant">
+                <tr>
+                  <th scope="col" class="w-[12%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">SKU / OEM</th>
+                  <th scope="col" class="w-[19%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">Repuesto &amp; Marca</th>
+                  <th scope="col" class="w-[15%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">Modelos Toyota</th>
+                  <th scope="col" class="w-[8%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Stock Actual</th>
+                  <th scope="col" class="w-[10%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Demanda ML</th>
+                  <th scope="col" class="w-[8%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">ROP</th>
+                  <th scope="col" class="w-[9%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Compra Sug.</th>
+                  <th scope="col" class="w-[9%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-center">Semáforo</th>
+                  <th scope="col" class="w-[10%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Acción</th>
+                </tr>
+              </thead>
+              <tbody id="restock-table-body" class="divide-y divide-light-outline-variant">
+                <!-- Row 1: CRITICO (0 stock) -->
+                <tr data-status="CRÍTICO" data-search="AIS-PAD-0D1 04465-0D150 Pastillas de Freno Delanteras AISIN Yaris Etios" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate" data-design-text-token="mono-md">AIS-PAD-0D1</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate" data-design-text-token="mono-sm">04465-0D150</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">Pastillas Freno Delanteras</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">AISIN</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate" data-design-text-token="body-sm">
+                    Yaris, Etios (14–22)
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-error" data-design-text-token="mono-md">0 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">24 u./mes</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">10 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-title text-title-sm tabular-nums text-light-primary" data-design-text-token="title-sm">+30 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-light-error-container text-light-on-error-container font-label text-label-sm" data-design-text-token="label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-light-error" aria-hidden="true"></span>
+                      CRÍTICO
+                    </span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="restockPart(&#39;AIS-PAD-0D1&#39;, 30)" class="inline-flex items-center justify-center h-7 px-2 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 transition-colors duration-state-change whitespace-nowrap">
+                      <span data-design-text-token="label-sm">+ Reponer Stock</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 2: CRITICO -->
+                <tr data-status="CRÍTICO" data-search="TOY-Buj-909 90919-01275 Bujías Iridium TOYOTA OEM Corolla RAV4" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate" data-design-text-token="mono-md">TOY-BUJ-909</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate" data-design-text-token="mono-sm">90919-01275</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">Bujías Iridium (Set x4)</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">TOYOTA OEM</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate" data-design-text-token="body-sm">
+                    Corolla, RAV4, C-HR
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-error" data-design-text-token="mono-md">2 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">18 u./mes</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">8 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-title text-title-sm tabular-nums text-light-primary" data-design-text-token="title-sm">+20 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-light-error-container text-light-on-error-container font-label text-label-sm" data-design-text-token="label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-light-error" aria-hidden="true"></span>
+                      CRÍTICO
+                    </span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="restockPart(&#39;TOY-BUJ-909&#39;, 20)" class="inline-flex items-center justify-center h-7 px-2 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 transition-colors duration-state-change whitespace-nowrap">
+                      <span data-design-text-token="label-sm">+ Reponer Stock</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 3: CRITICO -->
+                <tr data-status="CRÍTICO" data-search="TOY-FIL-HIL 23390-0L070 Filtro Combustible Diesel TOYOTA OEM Hilux Fortuner" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate" data-design-text-token="mono-md">TOY-FIL-0L0</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate" data-design-text-token="mono-sm">23390-0L070</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">Filtro Combustible Diésel</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">TOYOTA OEM</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate" data-design-text-token="body-sm">
+                    Hilux 1GD/2GD, Fortuner
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-error" data-design-text-token="mono-md">1 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">32 u./mes</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">14 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-title text-title-sm tabular-nums text-light-primary" data-design-text-token="title-sm">+35 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-light-error-container text-light-on-error-container font-label text-label-sm" data-design-text-token="label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-light-error" aria-hidden="true"></span>
+                      CRÍTICO
+                    </span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="restockPart(&#39;TOY-FIL-0L0&#39;, 35)" class="inline-flex items-center justify-center h-7 px-2 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 transition-colors duration-state-change whitespace-nowrap">
+                      <span data-design-text-token="label-sm">+ Reponer Stock</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 4: ALERTA -->
+                <tr data-status="ALERTA" data-search="DEN-AIR-178 17801-21060 Filtro de Aire Motor DENSO Yaris" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate" data-design-text-token="mono-md">DEN-AIR-178</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate" data-design-text-token="mono-sm">17801-21060</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">Filtro de Aire Motor 1.5</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">DENSO</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate" data-design-text-token="body-sm">
+                    Yaris, Prius C, Avanza
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-warning" data-design-text-token="mono-md">4 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">19 u./mes</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">7 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-title text-title-sm tabular-nums text-light-on-surface" data-design-text-token="title-sm">+15 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-container text-on-warning-container font-label text-label-sm" data-design-text-token="label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-warning" aria-hidden="true"></span>
+                      ALERTA
+                    </span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="restockPart(&#39;DEN-AIR-178&#39;, 15)" class="inline-flex items-center justify-center h-7 px-2 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container transition-colors duration-state-change whitespace-nowrap">
+                      <span data-design-text-token="label-sm">+ Reponer Stock</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 5: ALERTA -->
+                <tr data-status="ALERTA" data-search="AIS-CLU-312 31250-0K204 Kit Embrague AISIN Hilux" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate" data-design-text-token="mono-md">AIS-CLU-312</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate" data-design-text-token="mono-sm">31250-0K204</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">Kit de Embrague 275mm</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">AISIN</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate" data-design-text-token="body-sm">
+                    Hilux 2.4 / 2.8 (16–24)
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-warning" data-design-text-token="mono-md">3 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">9 u./mes</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">4 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-title text-title-sm tabular-nums text-light-on-surface" data-design-text-token="title-sm">+8 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-container text-on-warning-container font-label text-label-sm" data-design-text-token="label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-warning" aria-hidden="true"></span>
+                      ALERTA
+                    </span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="restockPart(&#39;AIS-CLU-312&#39;, 8)" class="inline-flex items-center justify-center h-7 px-2 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container transition-colors duration-state-change whitespace-nowrap">
+                      <span data-design-text-token="label-sm">+ Reponer Stock</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 6: NORMAL -->
+                <tr data-status="NORMAL" data-search="TOY-FIL-041 04152-YZZA6 Filtro de Aceite Cartucho TOYOTA OEM Yaris Corolla RAV4" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate" data-design-text-token="mono-md">TOY-FIL-041</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate" data-design-text-token="mono-sm">04152-YZZA6</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">Filtro de Aceite Cartucho</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">TOYOTA OEM</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate" data-design-text-token="body-sm">
+                    Yaris, Corolla, RAV4
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">38 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">44 u./mes</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">16 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">0 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm" data-design-text-token="label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-success" aria-hidden="true"></span>
+                      NORMAL
+                    </span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="restockPart(&#39;TOY-FIL-041&#39;, 10)" class="inline-flex items-center justify-center h-7 px-2 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant font-label text-label-sm hover:bg-light-surface-container transition-colors duration-state-change whitespace-nowrap">
+                      <span data-design-text-token="label-sm">+ Reponer Stock</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 7: NORMAL -->
+                <tr data-status="NORMAL" data-search="TOY-OIL-530 08880-83265 Aceite Sintético 5W-30 Galón 4L TOYOTA OEM" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate" data-design-text-token="mono-md">TOY-OIL-530</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate" data-design-text-token="mono-sm">08880-83265</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">Aceite Sintético 5W-30 4L</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">TOYOTA OEM</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate" data-design-text-token="body-sm">
+                    Toda la línea gasolina
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">24 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">28 u./mes</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">12 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">0 u.</td>
+                  <td class="px-gutter-sm py-2 align-middle text-center">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm" data-design-text-token="label-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-success" aria-hidden="true"></span>
+                      NORMAL
+                    </span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="restockPart(&#39;TOY-OIL-530&#39;, 12)" class="inline-flex items-center justify-center h-7 px-2 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant font-label text-label-sm hover:bg-light-surface-container transition-colors duration-state-change whitespace-nowrap">
+                      <span data-design-text-token="label-sm">+ Reponer Stock</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast feedback banner -->
+  <div id="pos-toast" role="status" aria-live="polite" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-gutter-lg py-gutter-sm rounded-sm bg-light-inverse-surface text-light-inverse-on-surface font-label text-label-md flex items-center gap-gutter-sm">
+    <span class="material-symbols-outlined text-[16px] text-success" aria-hidden="true">check_circle</span>
+    <span id="pos-toast-text">Acción completada</span>
+  </div>
+
+  <script>
+    function showToast(msg) {
+      const toast = document.getElementById('pos-toast');
+      const text = document.getElementById('pos-toast-text');
+      text.textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.add('hidden'), 2600);
+    }
+
+    window.restockPart = function(sku, qty) {
+      showToast(`Orden de compra generada: +${qty} u. para ${sku}`);
+    };
+
+    document.getElementById('recalculate-ml-btn').addEventListener('click', () => {
+      document.getElementById('ml-timestamp').textContent = 'Último cálculo: Ahora mismo • Horizonte: Próximos 30 días';
+      showToast('Modelo Random Forest Batch recalculado (R²: 0.86)');
+    });
+
+    let activeStatus = 'ALL';
+    const statusPills = document.querySelectorAll('.status-pill');
+    const searchInput = document.getElementById('restock-search-input');
+
+    function applyRestockFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('#restock-table-body tr').forEach(row => {
+        const status = row.getAttribute('data-status');
+        const text = (row.getAttribute('data-search') || '').toLowerCase();
+        const matchesStatus = activeStatus === 'ALL' || status === activeStatus;
+        const matchesQuery = !q || text.includes(q);
+        row.style.display = (matchesStatus && matchesQuery) ? '' : 'none';
+      });
+    }
+
+    statusPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        activeStatus = pill.getAttribute('data-status-filter');
+        statusPills.forEach(p => {
+          const isSelected = p === pill;
+          p.className = isSelected
+            ? 'status-pill px-2.5 py-1 rounded-full bg-light-secondary text-light-on-secondary font-label text-label-sm transition-colors duration-state-change'
+            : 'status-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change';
+        });
+        applyRestockFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', applyRestockFilters);
+
+    // Sidebar collapse toggle — Shell Parity
+    const sidebar = document.getElementById('pos-sidebar');
+    const collapseIcon = document.getElementById('collapse-icon');
+    let sidebarExpanded = false;
+
+    function toggleSidebar() {
+      sidebarExpanded = !sidebarExpanded;
+      if (sidebarExpanded) {
+        sidebar.classList.remove('w-16');
+        sidebar.classList.add('w-48');
+        document.querySelectorAll('.nav-label').forEach(el => el.classList.remove('hidden'));
+        document.querySelectorAll('.nav-item').forEach(el => {
+          el.classList.remove('justify-center');
+          el.classList.add('justify-start');
+        });
+        collapseIcon.textContent = 'chevron_left';
+      } else {
+        sidebar.classList.add('w-16');
+        sidebar.classList.remove('w-48');
+        document.querySelectorAll('.nav-label').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.nav-item').forEach(el => {
+          el.classList.add('justify-center');
+          el.classList.remove('justify-start');
+        });
+        collapseIcon.textContent = 'chevron_right';
+      }
+    }
+
+    document.getElementById('sidebar-toggle-btn').addEventListener('click', toggleSidebar);
+    document.getElementById('collapse-rail-btn').addEventListener('click', toggleSidebar);
+  </script>
+
+
+</body></html>

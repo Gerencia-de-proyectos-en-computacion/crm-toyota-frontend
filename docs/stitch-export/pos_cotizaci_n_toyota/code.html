@@ -1,0 +1,940 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS Cotización — [Nombre del Taller Automotriz]</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#15803D',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#B45309',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'info': '#0369A1',
+        'on-info': '#FFFFFF',
+        'info-container': '#E0F2FE',
+        'on-info-container': '#0C4A6E',
+        'whatsapp': '#16A34A',
+        'on-whatsapp': '#272727',
+        'light-primary': '#DC2626',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#FEE2E2',
+        'light-on-primary-container': '#991B1B',
+        'light-secondary': '#334155',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#E2E8F0',
+        'light-on-secondary-container': '#1E293B',
+        'light-tertiary': '#005E8D',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#E0F2FE',
+        'light-on-tertiary-container': '#003450',
+        'light-error': '#B91C1C',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FEE2E2',
+        'light-on-error-container': '#7F1D1D',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#0F172A',
+        'light-surface': '#F8FAFC',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F1F5F9',
+        'light-surface-container': '#E2E8F0',
+        'light-surface-container-high': '#CBD5E1',
+        'light-surface-container-highest': '#94A3B8',
+        'light-on-surface': '#0F172A',
+        'light-surface-variant': '#F1F5F9',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+        'light-inverse-surface': '#0F172A',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#FCA5A5',
+        'dark-primary': '#F87171',
+        'dark-on-primary': '#450A0A',
+        'dark-primary-container': '#991B1B',
+        'dark-on-primary-container': '#FEE2E2',
+        'dark-secondary': '#94A3B8',
+        'dark-on-secondary': '#0F172A',
+        'dark-secondary-container': '#334155',
+        'dark-on-secondary-container': '#F1F5F9',
+        'dark-tertiary': '#7DD3FC',
+        'dark-on-tertiary': '#082F49',
+        'dark-tertiary-container': '#0369A1',
+        'dark-on-tertiary-container': '#E0F2FE',
+        'dark-error': '#FCA5A5',
+        'dark-on-error': '#450A0A',
+        'dark-error-container': '#7F1D1D',
+        'dark-on-error-container': '#FEE2E2',
+        'dark-background': '#0F172A',
+        'dark-on-background': '#F8FAFC',
+        'dark-surface': '#0F172A',
+        'dark-surface-dim': '#020617',
+        'dark-surface-bright': '#1E293B',
+        'dark-surface-container-lowest': '#020617',
+        'dark-surface-container-low': '#1E293B',
+        'dark-surface-container': '#334155',
+        'dark-surface-container-high': '#475569',
+        'dark-surface-container-highest': '#64748B',
+        'dark-on-surface': '#F8FAFC',
+        'dark-surface-variant': '#1E293B',
+        'dark-on-surface-variant': '#CBD5E1',
+        'dark-outline': '#94A3B8',
+        'dark-outline-variant': '#334155',
+        'dark-inverse-surface': '#F8FAFC',
+        'dark-inverse-on-surface': '#0F172A',
+        'dark-inverse-primary': '#DC2626',
+      },
+      borderRadius: {
+        'xs': '4px',
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '10px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '16px',
+        'page-margin': '12px',
+      },
+      fontFamily: {
+        'display': ['"Alatsi"', 'sans-serif'],
+        'headline': ['"Instrument Sans"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['32px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '400' }],
+        'headline-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['16px', { lineHeight: '22px', letterSpacing: '-0.1px', fontWeight: '700' }],
+        'title-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['11px', { lineHeight: '14px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Alatsi&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .pos-scroll::-webkit-scrollbar { width: 5px; height: 5px; }
+    .pos-scroll::-webkit-scrollbar-track { background: transparent; }
+    .pos-scroll::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
+    .pos-scroll::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+  </style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] w-full flex bg-light-background" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Collapsible Compact Sidebar (64px default) -->
+    <aside id="pos-sidebar" aria-label="Navegación principal" class="w-16 shrink-0 min-h-[1024px] bg-light-surface-container-lowest border-r border-light-outline-variant flex flex-col justify-between py-gutter-sm transition-colors duration-state-change" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col items-center gap-gutter-sm px-gutter-xs">
+        <div class="w-full flex items-center justify-center h-9 mb-gutter-xs">
+          <button id="sidebar-toggle-btn" type="button" aria-label="Contraer o expandir menú lateral" title="Expandir menú" class="w-10 h-9 rounded-sm bg-light-primary text-light-on-primary flex items-center justify-center hover:opacity-90 transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">directions_car</span>
+          </button>
+        </div>
+
+        <nav class="w-full flex flex-col gap-gutter-xs" aria-label="Módulos POS">
+          <a href="#cotizaciones" aria-current="page" title="Cotizaciones POS" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm bg-light-primary-container text-light-on-primary-container font-label text-label-md">
+            <span class="material-symbols-outlined text-[20px] shrink-0" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">receipt_long</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Cotizaciones</span>
+          </a>
+
+          <a href="#vehiculos" title="Clientes y Vehículos" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">garage</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Vehículos</span>
+          </a>
+
+          <a href="#repuestos" title="Catálogo OEM" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">inventory_2</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Repuestos</span>
+          </a>
+
+          <a href="#ordenes" title="Órdenes de Servicio" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">build</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Órdenes</span>
+          </a>
+
+          <a href="#reportes" title="Reportes" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">bar_chart</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Reportes</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex flex-col items-center gap-gutter-xs px-gutter-xs">
+        <a href="#configuracion" title="Configuración" class="nav-item w-full flex items-center justify-center gap-gutter-sm h-9 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-[18px] shrink-0" aria-hidden="true">settings</span>
+          <span class="nav-label hidden truncate" data-design-text-token="label-md">Ajustes</span>
+        </a>
+        <button id="collapse-rail-btn" type="button" aria-label="Alternar barra lateral" title="Expandir barra" class="w-full flex items-center justify-center h-8 rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface transition-colors duration-state-change">
+          <span id="collapse-icon" class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Shell -->
+    <div class="flex-1 min-w-0 flex flex-col">
+
+      <!-- Top Bar (48px) -->
+      <header class="h-12 shrink-0 bg-light-surface-container-lowest border-b border-light-outline-variant px-gutter-lg flex items-center justify-between gap-gutter-md">
+        <div class="flex items-center gap-gutter-md min-w-0">
+          <div class="flex items-center gap-gutter-sm min-w-0">
+            <span class="w-2 h-5 rounded-xs bg-light-primary shrink-0" aria-hidden="true"></span>
+            <h1 class="font-headline text-headline-md text-light-on-surface truncate" data-design-text-token="headline-md">
+              [Nombre del Taller Automotriz]
+            </h1>
+          </div>
+
+          <span data-component-id="badge-role" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center px-2 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase tracking-wider shrink-0">
+            <span data-design-text-token="label-sm">RECEPCIONISTA</span>
+          </span>
+
+          <div class="hidden md:flex items-center gap-1.5 pl-gutter-sm border-l border-light-outline-variant text-light-on-surface-variant">
+            <span class="w-2 h-2 rounded-full bg-success shrink-0" aria-hidden="true"></span>
+            <span class="font-body text-body-sm" data-design-text-token="body-sm">Sesión activa: Carlos Mendoza • Caja 02</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-gutter-sm shrink-0">
+          <span id="autosave-pill" data-component-id="badge-autosave" data-component-type="badge" data-component-variant="success" role="status" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success-container text-on-success-container font-label text-label-sm">
+            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">cloud_done</span>
+            <span data-design-text-token="label-sm">Borrador autoguardado hace 5s</span>
+          </span>
+        </div>
+      </header>
+
+      <!-- Main 2-Column Split View (62% Left / 38% Right) -->
+      <main class="flex-1 min-w-0 p-gutter-md grid grid-cols-1 lg:grid-cols-[minmax(0,62fr)_minmax(0,38fr)] gap-gutter-md items-start">
+
+        <!-- LEFT COLUMN (62% width): Step 1 + Step 2 -->
+        <div class="min-w-0 flex flex-col gap-gutter-md">
+
+          <!-- 1. Compact Step 1 Card: Customer & Toyota Vehicle -->
+          <section aria-labelledby="step1-title" data-component-id="card-step1" data-component-type="card" data-component-variant="outlined" class="bg-light-surface-container-lowest border border-light-outline-variant rounded p-gutter-md flex flex-col gap-gutter-sm">
+            <div class="flex items-center justify-between gap-gutter-sm flex-wrap">
+              <div class="flex items-center gap-gutter-sm">
+                <span class="inline-flex items-center justify-center w-5 h-5 rounded-xs bg-light-primary text-light-on-primary font-label text-label-sm" data-design-text-token="label-sm">1</span>
+                <h2 id="step1-title" class="font-title text-title-sm text-light-on-surface" data-design-text-token="title-sm">
+                  Cliente y Vehículo Toyota
+                </h2>
+              </div>
+
+              <!-- Instant Search + New Customer/Car -->
+              <div class="flex items-center gap-gutter-sm flex-1 max-w-xl justify-end">
+                <label data-component-id="input-plate-search" data-component-type="input-field" data-component-variant="with-icon" class="relative flex items-center flex-1 max-w-sm">
+                  <span class="sr-only">Buscar por Placa o DNI/RUC</span>
+                  <span class="material-symbols-outlined text-[16px] text-light-on-surface-variant absolute left-2.5 pointer-events-none" aria-hidden="true">search</span>
+                  <input id="plate-search-input" type="search" value="ABC-123" placeholder="Buscar por Placa (ABC-123) o DNI/RUC..." class="w-full h-8 pl-8 pr-3 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-mono text-mono-md text-light-on-surface placeholder:font-body placeholder:text-body-sm placeholder:text-light-on-surface-variant focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+                </label>
+
+                <button id="new-client-btn" type="button" data-component-id="button-new-client" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center gap-1 h-8 px-gutter-md rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-md hover:bg-light-surface-container-low transition-colors duration-state-change shrink-0">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">person_add</span>
+                  <span data-design-text-token="label-md">+ Nuevo Cliente/Auto</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Selected Vehicle Summary Strip -->
+            <div class="flex items-center justify-between gap-gutter-sm px-gutter-md py-gutter-xs rounded-sm bg-light-surface-container-low border border-light-outline-variant flex-wrap">
+              <div class="flex items-center gap-gutter-sm min-w-0">
+                <span class="px-2 py-0.5 rounded-xs bg-light-on-surface text-light-surface-bright font-mono text-mono-md tracking-wide shrink-0" data-design-text-token="mono-md">ABC-123</span>
+                <span class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">
+                  Toyota Yaris 1.5 CVT • 2021 • 39,850 km
+                </span>
+              </div>
+              <div class="flex items-center gap-gutter-md text-light-on-surface-variant shrink-0">
+                <span class="font-body text-body-sm" data-design-text-token="body-sm">
+                  Titular: <strong class="font-semibold text-light-on-surface">Luis Paredes</strong> (DNI 44821903)
+                </span>
+                <span class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">VIN: MR2B29F30M10...</span>
+              </div>
+            </div>
+
+            <!-- Smart Preventive Highlight Banner -->
+            <div class="flex items-center justify-between gap-gutter-sm px-gutter-md py-gutter-xs rounded-sm bg-info-container border border-light-outline-variant">
+              <div class="flex items-center gap-gutter-sm min-w-0">
+                <span class="material-symbols-outlined text-[18px] text-info shrink-0" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">auto_awesome</span>
+                <p class="font-body text-body-md text-on-info-container truncate" data-design-text-token="body-md">
+                  Sugerencia Preventiva: Kit Mantenimiento 40,000 km Yaris
+                </p>
+              </div>
+              <button id="load-kit-btn" type="button" data-component-id="button-load-kit" data-component-type="button" data-component-variant="with-icon" class="inline-flex items-center gap-1 h-7 px-gutter-md rounded-sm bg-info text-on-info font-label text-label-md hover:opacity-90 transition-colors duration-state-change shrink-0">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">playlist_add</span>
+                <span data-design-text-token="label-md">Cargar Kit</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- 2. Step 2 Catalog Card -->
+          <section aria-label="Catálogo de Repuestos y Mano de Obra" data-component-id="card-step2" data-component-type="card" data-component-variant="outlined" class="bg-light-surface-container-lowest border border-light-outline-variant rounded flex flex-col overflow-hidden">
+            <!-- Tabs Header -->
+            <div class="px-gutter-md pt-gutter-sm border-b border-light-outline-variant flex items-center justify-between gap-gutter-md flex-wrap">
+              <div class="flex items-center gap-gutter-md">
+                <span class="inline-flex items-center justify-center w-5 h-5 rounded-xs bg-light-primary text-light-on-primary font-label text-label-sm" data-design-text-token="label-sm">2</span>
+                <div role="tablist" aria-label="Catálogo de cotización" class="flex items-center gap-gutter-md">
+                  <button role="tab" id="tab-parts" aria-selected="true" aria-controls="panel-parts" tabindex="0" class="pb-gutter-sm border-b-2 border-light-primary text-light-primary font-label text-label-lg transition-colors duration-state-change">
+                    <span data-design-text-token="label-lg">Repuestos Compatibles</span>
+                  </button>
+                  <button role="tab" id="tab-labor" aria-selected="false" aria-controls="panel-labor" tabindex="-1" class="pb-gutter-sm border-b-2 border-transparent text-light-on-surface-variant hover:text-light-on-surface font-label text-label-lg transition-colors duration-state-change">
+                    <span data-design-text-token="label-lg">Mano de Obra</span>
+                  </button>
+                </div>
+              </div>
+
+              <span class="font-body text-body-sm text-light-on-surface-variant pb-gutter-xs" data-design-text-token="body-sm">
+                Precios en Soles (S/) inc. IGV 18%
+              </span>
+            </div>
+
+            <!-- Tab Panel 1: Repuestos Compatibles -->
+            <div id="panel-parts" role="tabpanel" aria-labelledby="tab-parts" tabindex="0" class="flex flex-col">
+              <!-- Search & Filter Pills Toolbar -->
+              <div class="px-gutter-md py-gutter-sm bg-light-surface-container-low border-b border-light-outline-variant flex items-center justify-between gap-gutter-sm flex-wrap">
+                <label class="relative flex items-center flex-1 min-w-[220px] max-w-xs">
+                  <span class="sr-only">Buscar por código OEM o nombre de repuesto</span>
+                  <span class="material-symbols-outlined text-[16px] text-light-on-surface-variant absolute left-2.5 pointer-events-none" aria-hidden="true">qr_code_scanner</span>
+                  <input id="catalog-search-input" type="search" placeholder="Buscar código OEM o repuesto..." class="w-full h-8 pl-8 pr-3 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-body text-body-md text-light-on-surface placeholder:text-light-on-surface-variant focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+                </label>
+
+                <div class="flex items-center gap-gutter-xs" role="group" aria-label="Filtrar por categoría">
+                  <button type="button" data-filter="Todos" class="filter-pill px-2.5 py-1 rounded-full bg-light-secondary text-light-on-secondary font-label text-label-sm transition-colors duration-state-change">
+                    <span data-design-text-token="label-sm">Todos</span>
+                  </button>
+                  <button type="button" data-filter="Filtros" class="filter-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">
+                    <span data-design-text-token="label-sm">Filtros</span>
+                  </button>
+                  <button type="button" data-filter="Frenos" class="filter-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">
+                    <span data-design-text-token="label-sm">Frenos</span>
+                  </button>
+                  <button type="button" data-filter="Aceites" class="filter-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">
+                    <span data-design-text-token="label-sm">Aceites</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Compact Catalog Table -->
+              <div data-component-id="table-catalog" data-component-type="table" data-component-variant="compact" class="pos-scroll overflow-y-auto max-h-[382px]">
+                <table class="w-full border-collapse text-left">
+                  <thead class="sticky top-0 z-10 bg-light-surface-container-low border-b border-light-outline-variant">
+                    <tr>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
+                        <span data-design-text-token="label-sm">SKU / OEM Ref</span>
+                      </th>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
+                        <span data-design-text-token="label-sm">Repuesto &amp; Marca</span>
+                      </th>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
+                        <span data-design-text-token="label-sm">Stock</span>
+                      </th>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">
+                        <span data-design-text-token="label-sm">Precio (S/)</span>
+                      </th>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">
+                        <span data-design-text-token="label-sm">Acción</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="parts-table-body" class="divide-y divide-light-outline-variant">
+                    <!-- Row 1: Normal Stock -->
+                    <tr data-category="Filtros" data-search="04152-YZZA6 Filtro de Aceite Cartucho TOYOTA OEM" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-mono text-mono-md text-light-on-surface" data-design-text-token="mono-md">TOY-FIL-041</div>
+                        <div class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">OEM: 04152-YZZA6</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-title text-title-sm text-light-on-surface" data-design-text-token="title-sm">Filtro de Aceite Cartucho</div>
+                        <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">TOYOTA OEM</span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm" data-design-text-token="label-sm">
+                          <span class="w-1.5 h-1.5 rounded-full bg-success" aria-hidden="true"></span>
+                          Normal (18)
+                        </span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <div class="font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">S/ 45.00</div>
+                        <div class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">(inc. IGV)</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <button type="button" onclick="addQuoteItem(&#39;TOY-FIL-041&#39;, &#39;Filtro de Aceite Cartucho (OEM)&#39;, 45.00, &#39;Repuesto&#39;)" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 transition-colors duration-state-change">
+                          <span data-design-text-token="label-sm">+ Agregar</span>
+                        </button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 2: Alert Stock (Yellow) -->
+                    <tr data-category="Filtros" data-search="17801-21060 Filtro de Aire Motor DENSO" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-mono text-mono-md text-light-on-surface" data-design-text-token="mono-md">DEN-AIR-178</div>
+                        <div class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">OEM: 17801-21060</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-title text-title-sm text-light-on-surface" data-design-text-token="title-sm">Filtro de Aire Motor Yaris 1.5</div>
+                        <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">DENSO</span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-warning-container text-on-warning-container font-label text-label-sm" data-design-text-token="label-sm">
+                          <span class="w-1.5 h-1.5 rounded-full bg-warning" aria-hidden="true"></span>
+                          Alerta (2)
+                        </span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <div class="font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">S/ 85.00</div>
+                        <div class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">(inc. IGV)</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <button type="button" onclick="addQuoteItem(&#39;DEN-AIR-178&#39;, &#39;Filtro de Aire Motor Yaris 1.5&#39;, 85.00, &#39;Repuesto&#39;)" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 transition-colors duration-state-change">
+                          <span data-design-text-token="label-sm">+ Agregar</span>
+                        </button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 3: Normal Stock (Oil) -->
+                    <tr data-category="Aceites" data-search="08880-83265 Aceite Sintetico 5W-30 Galon 4L TOYOTA OEM" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-mono text-mono-md text-light-on-surface" data-design-text-token="mono-md">TOY-OIL-530</div>
+                        <div class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">OEM: 08880-83265</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-title text-title-sm text-light-on-surface" data-design-text-token="title-sm">Aceite Sintético 5W-30 Galón 4L</div>
+                        <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">TOYOTA OEM</span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm" data-design-text-token="label-sm">
+                          <span class="w-1.5 h-1.5 rounded-full bg-success" aria-hidden="true"></span>
+                          Normal (24)
+                        </span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <div class="font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">S/ 165.00</div>
+                        <div class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">(inc. IGV)</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <button type="button" onclick="addQuoteItem(&#39;TOY-OIL-530&#39;, &#39;Aceite Sintético 5W-30 Galón 4L&#39;, 165.00, &#39;Repuesto&#39;)" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 transition-colors duration-state-change">
+                          <span data-design-text-token="label-sm">+ Agregar</span>
+                        </button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 4: Out of Stock (Red) with "Ver 2 Equivalentes" -->
+                    <tr data-category="Frenos" data-search="04465-0D150 Pastillas de Freno Delanteras AISIN" class="bg-light-surface-container-low hover:bg-light-surface-container transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-mono text-mono-md text-light-on-surface" data-design-text-token="mono-md">AIS-PAD-0D1</div>
+                        <div class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">OEM: 04465-0D150</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-title text-title-sm text-light-on-surface" data-design-text-token="title-sm">Pastillas de Freno Delanteras</div>
+                        <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">AISIN</span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="flex flex-col items-start gap-1">
+                          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-light-error-container text-light-on-error-container font-label text-label-sm" data-design-text-token="label-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-light-error" aria-hidden="true"></span>
+                            Agotado (0)
+                          </span>
+                          <button type="button" id="show-equivalents-btn" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-xs border border-light-primary text-light-primary bg-light-surface-container-lowest font-label text-label-sm hover:bg-light-primary-container transition-colors duration-state-change">
+                            <span data-design-text-token="label-sm">Ver 2 Equivalentes</span>
+                          </button>
+                        </div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <div class="font-mono text-mono-md tabular-nums text-light-on-surface-variant" data-design-text-token="mono-md">S/ 190.00</div>
+                        <div class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">(inc. IGV)</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <button type="button" disabled class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container text-light-on-surface-variant font-label text-label-sm cursor-not-allowed">
+                          <span data-design-text-token="label-sm">Sin Stock</span>
+                        </button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 5: Normal Stock (Brakes Equivalent) -->
+                    <tr data-category="Frenos" data-search="04465-52320 Pastillas de Freno Cerámicas TOYOTA OEM" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-mono text-mono-md text-light-on-surface" data-design-text-token="mono-md">TOY-PAD-523</div>
+                        <div class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">OEM: 04465-52320</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-title text-title-sm text-light-on-surface" data-design-text-token="title-sm">Pastillas de Freno Delanteras OEM</div>
+                        <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">TOYOTA OEM</span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm" data-design-text-token="label-sm">
+                          <span class="w-1.5 h-1.5 rounded-full bg-success" aria-hidden="true"></span>
+                          Normal (9)
+                        </span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <div class="font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">S/ 190.00</div>
+                        <div class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">(inc. IGV)</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <button type="button" onclick="addQuoteItem(&#39;TOY-PAD-523&#39;, &#39;Pastillas de Freno Delanteras OEM&#39;, 190.00, &#39;Repuesto&#39;)" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 transition-colors duration-state-change">
+                          <span data-design-text-token="label-sm">+ Agregar</span>
+                        </button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 6: Normal Stock (Cabin Filter) -->
+                    <tr data-category="Filtros" data-search="87139-0N010 Filtro de Cabina Polen DENSO" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-mono text-mono-md text-light-on-surface" data-design-text-token="mono-md">DEN-CAB-871</div>
+                        <div class="font-mono text-mono-sm text-light-on-surface-variant" data-design-text-token="mono-sm">OEM: 87139-0N010</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <div class="font-title text-title-sm text-light-on-surface" data-design-text-token="title-sm">Filtro de Cabina / Polen Carbón</div>
+                        <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase" data-design-text-token="label-sm">DENSO</span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm" data-design-text-token="label-sm">
+                          <span class="w-1.5 h-1.5 rounded-full bg-success" aria-hidden="true"></span>
+                          Normal (14)
+                        </span>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <div class="font-mono text-mono-md tabular-nums text-light-on-surface" data-design-text-token="mono-md">S/ 65.00</div>
+                        <div class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">(inc. IGV)</div>
+                      </td>
+                      <td class="px-gutter-sm py-2 align-middle text-right">
+                        <button type="button" onclick="addQuoteItem(&#39;DEN-CAB-871&#39;, &#39;Filtro de Cabina / Polen Carbón&#39;, 65.00, &#39;Repuesto&#39;)" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90 transition-colors duration-state-change">
+                          <span data-design-text-token="label-sm">+ Agregar</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tab Panel 2: Mano de Obra (hidden by default) -->
+            <div id="panel-labor" role="tabpanel" aria-labelledby="tab-labor" tabindex="0" hidden class="flex flex-col">
+              <div class="pos-scroll overflow-y-auto max-h-[430px]">
+                <table class="w-full border-collapse text-left">
+                  <thead class="sticky top-0 z-10 bg-light-surface-container-low border-b border-light-outline-variant">
+                    <tr>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">Código Servicio</th>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">Descripción de Mano de Obra</th>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">Tiempo Est.</th>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Tarifa (S/)</th>
+                      <th scope="col" class="px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-light-outline-variant">
+                    <tr class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 font-mono text-mono-md text-light-on-surface">MO-MANT-40K</td>
+                      <td class="px-gutter-sm py-2 font-title text-title-sm text-light-on-surface">Mantenimiento Preventivo 40,000 km</td>
+                      <td class="px-gutter-sm py-2 font-body text-body-sm text-light-on-surface-variant">1.5 hrs</td>
+                      <td class="px-gutter-sm py-2 text-right font-mono text-mono-md tabular-nums text-light-on-surface">S/ 80.00</td>
+                      <td class="px-gutter-sm py-2 text-right">
+                        <button type="button" onclick="addQuoteItem(&#39;MO-MANT-40K&#39;, &#39;Mantenimiento Preventivo 40k km (M.O.)&#39;, 80.00, &#39;Mano de Obra&#39;)" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90">
+                          <span data-design-text-token="label-sm">+ Agregar</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 font-mono text-mono-md text-light-on-surface">MO-FREN-DEL</td>
+                      <td class="px-gutter-sm py-2 font-title text-title-sm text-light-on-surface">Cambio de Pastillas y Rectificado Delantero</td>
+                      <td class="px-gutter-sm py-2 font-body text-body-sm text-light-on-surface-variant">1.0 hr</td>
+                      <td class="px-gutter-sm py-2 text-right font-mono text-mono-md tabular-nums text-light-on-surface">S/ 65.00</td>
+                      <td class="px-gutter-sm py-2 text-right">
+                        <button type="button" onclick="addQuoteItem(&#39;MO-FREN-DEL&#39;, &#39;Cambio Pastillas Delanteras (M.O.)&#39;, 65.00, &#39;Mano de Obra&#39;)" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90">
+                          <span data-design-text-token="label-sm">+ Agregar</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                      <td class="px-gutter-sm py-2 font-mono text-mono-md text-light-on-surface">MO-ESCAN-OBD</td>
+                      <td class="px-gutter-sm py-2 font-title text-title-sm text-light-on-surface">Diagnóstico Electrónico Techstream Toyota</td>
+                      <td class="px-gutter-sm py-2 font-body text-body-sm text-light-on-surface-variant">0.5 hr</td>
+                      <td class="px-gutter-sm py-2 text-right font-mono text-mono-md tabular-nums text-light-on-surface">S/ 55.00</td>
+                      <td class="px-gutter-sm py-2 text-right">
+                        <button type="button" onclick="addQuoteItem(&#39;MO-ESCAN-OBD&#39;, &#39;Diagnóstico Techstream Toyota (M.O.)&#39;, 55.00, &#39;Mano de Obra&#39;)" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-primary text-light-on-primary font-label text-label-sm hover:opacity-90">
+                          <span data-design-text-token="label-sm">+ Agregar</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- RIGHT COLUMN (38% width): Step 3 Fixed-Height Live Quote Ticket -->
+        <aside aria-labelledby="step3-title" data-component-id="card-quote-ticket" data-component-type="card" data-component-variant="action" class="bg-light-surface-container-lowest border border-light-outline-variant rounded flex flex-col lg:h-[692px] overflow-hidden">
+          <!-- Ticket Header -->
+          <header class="px-gutter-md py-gutter-sm border-b border-light-outline-variant bg-light-surface-container-low flex items-center justify-between gap-gutter-sm shrink-0">
+            <div class="flex items-center gap-gutter-sm min-w-0">
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-xs bg-light-primary text-light-on-primary font-label text-label-sm shrink-0" data-design-text-token="label-sm">3</span>
+              <div class="min-w-0">
+                <h2 id="step3-title" class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">
+                  Proforma COT-2026-00042
+                </h2>
+                <p class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">
+                  Vigencia: 7 días • <span id="quote-item-count">4</span> ítems
+                </p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full bg-light-primary-container text-light-on-primary-container font-label text-label-sm shrink-0" data-design-text-token="label-sm">
+              En Borrador
+            </span>
+          </header>
+
+          <!-- Scrollable Compact Item List -->
+          <div id="quote-items-list" class="flex-1 min-h-0 pos-scroll overflow-y-auto divide-y divide-light-outline-variant px-gutter-md">
+            <!-- Rendered dynamically by JS -->
+          </div>
+
+          <!-- Discount & Tax Breakdown -->
+          <div class="px-gutter-md py-gutter-sm border-t border-light-outline-variant bg-light-surface-container-low flex flex-col gap-gutter-xs shrink-0">
+            <!-- Discount Row (capped at 5%) -->
+            <div class="flex items-center justify-between gap-gutter-sm pb-gutter-xs border-b border-light-outline-variant">
+              <div class="flex flex-col">
+                <label for="discount-input" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">
+                  Descuento Mostrador (%)
+                </label>
+                <span class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">
+                  Tope máx. 5% sin clave de jefe
+                </span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <input id="discount-input" type="number" min="0" max="5" step="1" value="0" class="w-16 h-7 px-2 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-mono text-mono-md text-right tabular-nums text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+                <span class="font-mono text-mono-md text-light-on-surface-variant" data-design-text-token="mono-md">%</span>
+              </div>
+            </div>
+
+            <!-- Totals Breakdown -->
+            <div class="flex items-center justify-between text-light-on-surface-variant">
+              <span class="font-body text-body-sm" data-design-text-token="body-sm">Subtotal sin IGV (S/)</span>
+              <span id="subtotal-display" class="font-mono text-mono-md tabular-nums" data-design-text-token="mono-md">S/ 406.78</span>
+            </div>
+
+            <div id="discount-amount-row" class="hidden flex items-center justify-between text-light-primary">
+              <span class="font-body text-body-sm" data-design-text-token="body-sm">Descuento aplicado</span>
+              <span id="discount-amount-display" class="font-mono text-mono-md tabular-nums" data-design-text-token="mono-md">- S/ 0.00</span>
+            </div>
+
+            <div class="flex items-center justify-between text-light-on-surface-variant">
+              <span class="font-body text-body-sm" data-design-text-token="body-sm">IGV 18% (S/)</span>
+              <span id="igv-display" class="font-mono text-mono-md tabular-nums" data-design-text-token="mono-md">S/ 73.22</span>
+            </div>
+
+            <div class="flex items-baseline justify-between pt-gutter-xs border-t border-light-outline-variant">
+              <span class="font-headline text-headline-md text-light-on-surface" data-design-text-token="headline-md">Total a Pagar</span>
+              <span id="total-display" class="font-display text-display-lg tabular-nums text-light-on-surface" data-design-text-token="display-lg">S/ 480.00</span>
+            </div>
+          </div>
+
+          <!-- Bottom Fixed Action Grid -->
+          <footer class="p-gutter-md border-t border-light-outline-variant bg-light-surface-container-lowest flex flex-col gap-gutter-sm shrink-0">
+            <button id="approve-sale-btn" type="button" data-component-id="button-approve-sale" data-component-type="button" data-component-variant="primary" class="w-full h-10 px-gutter-lg rounded-sm bg-light-primary text-light-on-primary font-label text-label-lg flex items-center justify-center gap-gutter-xs hover:opacity-90 transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+              <span data-design-text-token="label-lg">Aprobar Venta (Descontar Stock)</span>
+            </button>
+
+            <button id="save-pending-btn" type="button" data-component-id="button-save-pending" data-component-type="button" data-component-variant="secondary" class="w-full h-8 px-gutter-md rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-md flex items-center justify-center gap-gutter-xs hover:bg-light-surface-container-low transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">bookmark</span>
+              <span data-design-text-token="label-md">Guardar Pendiente</span>
+            </button>
+
+            <!-- Quick Export Row -->
+            <div class="grid grid-cols-2 gap-gutter-sm">
+              <button id="download-pdf-btn" type="button" data-component-id="button-download-pdf" data-component-type="button" data-component-variant="secondary" class="h-8 px-gutter-sm rounded-sm bg-light-surface-container-low border border-light-outline-variant text-light-on-surface font-label text-label-md flex items-center justify-center gap-1.5 hover:bg-light-surface-container transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">picture_as_pdf</span>
+                <span data-design-text-token="label-md">Descargar PDF</span>
+              </button>
+
+              <button id="send-whatsapp-btn" type="button" data-component-id="button-send-whatsapp" data-component-type="button" data-component-variant="with-icon" class="h-8 px-gutter-sm rounded-sm bg-success text-on-success font-label text-label-md flex items-center justify-center gap-1.5 hover:opacity-90 transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chat</span>
+                <span data-design-text-token="label-md">Enviar por WhatsApp</span>
+              </button>
+            </div>
+          </footer>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast feedback banner -->
+  <div id="pos-toast" role="status" aria-live="polite" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-gutter-lg py-gutter-sm rounded-sm bg-light-inverse-surface text-light-inverse-on-surface font-label text-label-md flex items-center gap-gutter-sm">
+    <span class="material-symbols-outlined text-[16px] text-success" aria-hidden="true">check_circle</span>
+    <span id="pos-toast-text">Acción completada</span>
+  </div>
+
+  <script>
+    let quoteItems = [
+      { sku: 'TOY-FIL-041', name: 'Filtro de Aceite Cartucho (OEM)', price: 45.00, qty: 1, type: 'Repuesto' },
+      { sku: 'TOY-OIL-530', name: 'Aceite Sintético 5W-30 Galón 4L', price: 165.00, qty: 1, type: 'Repuesto' },
+      { sku: 'TOY-PAD-523', name: 'Pastillas de Freno Delanteras OEM', price: 190.00, qty: 1, type: 'Repuesto' },
+      { sku: 'MO-MANT-40K', name: 'Mantenimiento Preventivo 40k km (M.O.)', price: 80.00, qty: 1, type: 'Mano de Obra' }
+    ];
+
+    function showToast(msg) {
+      const toast = document.getElementById('pos-toast');
+      const text = document.getElementById('pos-toast-text');
+      text.textContent = msg;
+      toast.classList.remove('hidden');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.add('hidden'), 2600);
+    }
+
+    function renderQuote() {
+      const list = document.getElementById('quote-items-list');
+      const countEl = document.getElementById('quote-item-count');
+      const discountInput = document.getElementById('discount-input');
+
+      let discountPct = parseFloat(discountInput.value) || 0;
+      if (discountPct > 5) { discountPct = 5; discountInput.value = 5; }
+      if (discountPct < 0) { discountPct = 0; discountInput.value = 0; }
+
+      countEl.textContent = quoteItems.reduce((acc, item) => acc + item.qty, 0);
+
+      if (quoteItems.length === 0) {
+        list.innerHTML = '<div class="py-8 text-center font-body text-body-md text-light-on-surface-variant">No hay ítems en la proforma. Agrega repuestos o mano de obra desde el catálogo.</div>';
+      } else {
+        list.innerHTML = quoteItems.map((item, idx) => `
+          <div class="py-2 flex items-center justify-between gap-gutter-sm">
+            <div class="min-w-0 flex-1">
+              <div class="font-title text-title-sm text-light-on-surface truncate">${item.name}</div>
+              <div class="flex items-center gap-2 font-mono text-mono-sm text-light-on-surface-variant">
+                <span>${item.sku}</span>
+                <span>•</span>
+                <span class="tabular-nums">S/ ${item.price.toFixed(2)} c/u</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-1.5 shrink-0">
+              <div class="inline-flex items-center border border-light-outline-variant rounded-xs bg-light-surface-container-low">
+                <button type="button" onclick="updateQty(${idx}, -1)" aria-label="Disminuir cantidad" class="w-6 h-6 flex items-center justify-center text-light-on-surface hover:bg-light-surface-container font-label text-label-md">−</button>
+                <span class="w-6 text-center font-mono text-mono-sm tabular-nums text-light-on-surface">${item.qty}</span>
+                <button type="button" onclick="updateQty(${idx}, 1)" aria-label="Aumentar cantidad" class="w-6 h-6 flex items-center justify-center text-light-on-surface hover:bg-light-surface-container font-label text-label-md">+</button>
+              </div>
+
+              <span class="w-16 text-right font-mono text-mono-md tabular-nums text-light-on-surface">
+                S/ ${(item.price * item.qty).toFixed(2)}
+              </span>
+
+              <button type="button" onclick="removeItem(${idx})" aria-label="Eliminar ítem" class="w-6 h-6 inline-flex items-center justify-center rounded-xs text-light-on-surface-variant hover:text-light-error hover:bg-light-error-container transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">delete</span>
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const grossTotal = quoteItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const discountAmt = grossTotal * (discountPct / 100);
+      const netTotal = grossTotal - discountAmt;
+      const subtotalSinIgv = netTotal / 1.18;
+      const igv = netTotal - subtotalSinIgv;
+
+      document.getElementById('subtotal-display').textContent = `S/ ${subtotalSinIgv.toFixed(2)}`;
+      document.getElementById('igv-display').textContent = `S/ ${igv.toFixed(2)}`;
+      document.getElementById('total-display').textContent = `S/ ${netTotal.toFixed(2)}`;
+
+      const discRow = document.getElementById('discount-amount-row');
+      if (discountAmt > 0) {
+        discRow.classList.remove('hidden');
+        document.getElementById('discount-amount-display').textContent = `- S/ ${discountAmt.toFixed(2)}`;
+      } else {
+        discRow.classList.add('hidden');
+      }
+    }
+
+    window.addQuoteItem = function(sku, name, price, type) {
+      const existing = quoteItems.find(i => i.sku === sku);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        quoteItems.push({ sku, name, price, qty: 1, type });
+      }
+      renderQuote();
+      showToast(`Agregado: ${name}`);
+    };
+
+    window.updateQty = function(idx, delta) {
+      if (!quoteItems[idx]) return;
+      quoteItems[idx].qty += delta;
+      if (quoteItems[idx].qty <= 0) {
+        quoteItems.splice(idx, 1);
+      }
+      renderQuote();
+    };
+
+    window.removeItem = function(idx) {
+      quoteItems.splice(idx, 1);
+      renderQuote();
+    };
+
+    document.getElementById('discount-input').addEventListener('input', renderQuote);
+
+    document.getElementById('load-kit-btn').addEventListener('click', () => {
+      const kitItems = [
+        { sku: 'TOY-FIL-041', name: 'Filtro de Aceite Cartucho (OEM)', price: 45.00, qty: 1, type: 'Repuesto' },
+        { sku: 'DEN-AIR-178', name: 'Filtro de Aire Motor Yaris 1.5', price: 85.00, qty: 1, type: 'Repuesto' },
+        { sku: 'TOY-OIL-530', name: 'Aceite Sintético 5W-30 Galón 4L', price: 165.00, qty: 1, type: 'Repuesto' },
+        { sku: 'MO-MANT-40K', name: 'Mantenimiento Preventivo 40k km (M.O.)', price: 80.00, qty: 1, type: 'Mano de Obra' }
+      ];
+      kitItems.forEach(k => {
+        if (!quoteItems.find(q => q.sku === k.sku)) {
+          quoteItems.push(k);
+        }
+      });
+      renderQuote();
+      showToast('Kit Mantenimiento 40,000 km Yaris cargado en la proforma');
+    });
+
+    const tabParts = document.getElementById('tab-parts');
+    const tabLabor = document.getElementById('tab-labor');
+    const panelParts = document.getElementById('panel-parts');
+    const panelLabor = document.getElementById('panel-labor');
+
+    function activateTab(activeBtn, inactiveBtn, showPanel, hidePanel) {
+      activeBtn.setAttribute('aria-selected', 'true');
+      activeBtn.setAttribute('tabindex', '0');
+      activeBtn.classList.add('border-light-primary', 'text-light-primary');
+      activeBtn.classList.remove('border-transparent', 'text-light-on-surface-variant');
+
+      inactiveBtn.setAttribute('aria-selected', 'false');
+      inactiveBtn.setAttribute('tabindex', '-1');
+      inactiveBtn.classList.remove('border-light-primary', 'text-light-primary');
+      inactiveBtn.classList.add('border-transparent', 'text-light-on-surface-variant');
+
+      showPanel.hidden = false;
+      hidePanel.hidden = true;
+    }
+
+    tabParts.addEventListener('click', () => activateTab(tabParts, tabLabor, panelParts, panelLabor));
+    tabLabor.addEventListener('click', () => activateTab(tabLabor, tabParts, panelLabor, panelParts));
+
+    let activeCategory = 'Todos';
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const catalogSearch = document.getElementById('catalog-search-input');
+
+    function applyCatalogFilters() {
+      const q = catalogSearch.value.trim().toLowerCase();
+      document.querySelectorAll('#parts-table-body tr').forEach(row => {
+        const cat = row.getAttribute('data-category');
+        const text = (row.getAttribute('data-search') || '').toLowerCase();
+        const matchesCat = activeCategory === 'Todos' || cat === activeCategory;
+        const matchesQuery = !q || text.includes(q);
+        row.style.display = (matchesCat && matchesQuery) ? '' : 'none';
+      });
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        activeCategory = pill.getAttribute('data-filter');
+        filterPills.forEach(p => {
+          const isSelected = p === pill;
+          p.className = isSelected
+            ? 'filter-pill px-2.5 py-1 rounded-full bg-light-secondary text-light-on-secondary font-label text-label-sm transition-colors duration-state-change'
+            : 'filter-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change';
+        });
+        applyCatalogFilters();
+      });
+    });
+
+    catalogSearch.addEventListener('input', applyCatalogFilters);
+
+    document.getElementById('show-equivalents-btn').addEventListener('click', () => {
+      activeCategory = 'Frenos';
+      catalogSearch.value = '';
+      filterPills.forEach(p => {
+        const isSelected = p.getAttribute('data-filter') === 'Frenos';
+        p.className = isSelected
+          ? 'filter-pill px-2.5 py-1 rounded-full bg-light-secondary text-light-on-secondary font-label text-label-sm transition-colors duration-state-change'
+          : 'filter-pill px-2.5 py-1 rounded-full bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change';
+      });
+      applyCatalogFilters();
+      showToast('Mostrando equivalentes compatibles en Frenos');
+    });
+
+    const sidebar = document.getElementById('pos-sidebar');
+    const collapseIcon = document.getElementById('collapse-icon');
+    let sidebarExpanded = false;
+
+    function toggleSidebar() {
+      sidebarExpanded = !sidebarExpanded;
+      if (sidebarExpanded) {
+        sidebar.classList.remove('w-16');
+        sidebar.classList.add('w-48');
+        document.querySelectorAll('.nav-label').forEach(el => el.classList.remove('hidden'));
+        document.querySelectorAll('.nav-item').forEach(el => {
+          el.classList.remove('justify-center');
+          el.classList.add('justify-start');
+        });
+        collapseIcon.textContent = 'chevron_left';
+      } else {
+        sidebar.classList.add('w-16');
+        sidebar.classList.remove('w-48');
+        document.querySelectorAll('.nav-label').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.nav-item').forEach(el => {
+          el.classList.add('justify-center');
+          el.classList.remove('justify-start');
+        });
+        collapseIcon.textContent = 'chevron_right';
+      }
+    }
+
+    document.getElementById('sidebar-toggle-btn').addEventListener('click', toggleSidebar);
+    document.getElementById('collapse-rail-btn').addEventListener('click', toggleSidebar);
+
+    document.getElementById('approve-sale-btn').addEventListener('click', () => showToast('Venta aprobada • Stock descontado en almacén'));
+    document.getElementById('save-pending-btn').addEventListener('click', () => showToast('Proforma COT-2026-00042 guardada como pendiente'));
+    document.getElementById('download-pdf-btn').addEventListener('click', () => showToast('Generando PDF de Proforma COT-2026-00042...'));
+    document.getElementById('send-whatsapp-btn').addEventListener('click', () => showToast('Proforma enviada por WhatsApp al cliente'));
+    document.getElementById('new-client-btn').addEventListener('click', () => showToast('Abriendo registro rápido de cliente y placa Toyota'));
+
+    renderQuote();
+  </script>
+
+
+</body></html>
