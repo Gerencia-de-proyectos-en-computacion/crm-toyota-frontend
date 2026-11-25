@@ -168,6 +168,7 @@ export interface QuoteResponse {
   whatsappUrl: string
   createdAt: string
   updatedAt: string
+  closedAt: string | null
   items: QuoteItemResponse[]
 }
 

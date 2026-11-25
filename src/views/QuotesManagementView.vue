@@ -177,6 +177,21 @@ function openWhatsApp(quote: QuoteResponse) {
   window.open(quote.whatsappUrl, '_blank', 'noopener,noreferrer')
 }
 
+function formatClosedAtLima(iso: string | null, fallbackIso: string): string {
+  const raw = iso || fallbackIso
+  const d = new Date(raw)
+  if (Number.isNaN(d.getTime())) return raw
+  return new Intl.DateTimeFormat('es-PE', {
+    timeZone: 'America/Lima',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(d)
+}
+
 onMounted(() => {
   fetchQuotes()
 })
@@ -285,7 +300,13 @@ onMounted(() => {
             >
               <td class="px-gutter-sm py-2.5 font-mono text-mono-md">{{ q.quoteNumber }}</td>
               <td class="px-gutter-sm py-2.5">
-                <div class="font-body text-body-sm text-light-on-surface">Vence: {{ q.validUntil }}</div>
+                <div class="font-body text-body-sm text-light-on-surface truncate">
+                  {{
+                    q.status === 'CERRADA'
+                      ? `Atendida: ${formatClosedAtLima(q.closedAt, q.updatedAt)}`
+                      : `Vence: ${q.validUntil}`
+                  }}
+                </div>
                 <div class="font-body text-body-sm text-light-on-surface-variant truncate">
                   {{
                     q.status === 'RECHAZADA'
