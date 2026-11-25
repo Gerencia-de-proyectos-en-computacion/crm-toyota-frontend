@@ -268,21 +268,21 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="pos-scroll overflow-y-auto max-h-[395px]">
+        <div class="pos-scroll overflow-y-auto overflow-x-hidden max-h-[395px]">
           <table class="w-full border-collapse text-left table-fixed">
             <thead class="sticky top-0 z-10 bg-light-surface-container-low border-b border-light-outline-variant">
               <tr>
-                <th class="w-[12%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
+                <th class="w-[11%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
                   SKU / OEM
                 </th>
-                <th class="w-[20%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
+                <th class="w-[19%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
                   Repuesto & Marca
                 </th>
-                <th class="w-[15%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
+                <th class="w-[14%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase">
                   Modelos Toyota
                 </th>
                 <th
-                  class="w-[8%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right"
+                  class="w-[7%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right"
                 >
                   Stock
                 </th>
@@ -307,7 +307,7 @@ onMounted(() => {
                   Semáforo
                 </th>
                 <th
-                  class="w-[10%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right"
+                  class="w-[14%] px-gutter-sm py-2 font-label text-label-sm text-light-on-surface-variant uppercase text-right"
                 >
                   Acción
                 </th>
@@ -326,14 +326,17 @@ onMounted(() => {
                   </div>
                 </td>
                 <td class="px-gutter-sm py-2">
-                  <div class="font-title text-title-sm truncate">{{ row.partName }}</div>
+                  <div class="font-title text-title-sm truncate" :title="row.partName">{{ row.partName }}</div>
                   <span
                     class="inline-flex px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase"
                   >
                     {{ row.brand.replace('_', ' ') }}
                   </span>
                 </td>
-                <td class="px-gutter-sm py-2 font-body text-body-sm text-light-on-surface-variant truncate">
+                <td
+                  class="px-gutter-sm py-2 font-body text-body-sm text-light-on-surface-variant truncate"
+                  :title="row.compatibleModels"
+                >
                   {{ row.compatibleModels }}
                 </td>
                 <td
