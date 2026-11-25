@@ -5,6 +5,7 @@ import { useQuoteDraftStore } from '@/stores/quoteDraft'
 import { useAuthStore } from '@/stores/auth'
 import StockConflictModal from '@/components/StockConflictModal.vue'
 import RejectQuoteModal from '@/components/RejectQuoteModal.vue'
+import PartPriceModal from '@/components/PartPriceModal.vue'
 import type { MaintenanceKit } from '@/types/crm'
 
 describe('CRM-TOYOTA Frontend Mostrador & Modales Stitch', () => {
@@ -147,5 +148,46 @@ describe('CRM-TOYOTA Frontend Mostrador & Modales Stitch', () => {
     expect(wrapper.text()).toContain('reintegrarán atómicamente')
     await wrapper.find('button.bg-light-primary').trigger('click')
     expect(wrapper.emitted('confirm')?.[0]).toEqual(['FALTA_STOCK', ''])
+  })
+
+  it('renderiza PartPriceModal con cálculo en vivo de Base + IGV 18% y preserva stock al editar', async () => {
+    const wrapper = mount(PartPriceModal, {
+      props: {
+        open: true,
+        part: {
+          id: 7,
+          sku: 'TOY-PAD-523',
+          oemReferenceCode: '04465-0D150',
+          brand: 'TOYOTA_OEM',
+          name: 'Pastillas de Freno Delanteras OEM',
+          category: 'Frenos',
+          compatibleSummary: 'Yaris (14-24)',
+          salePriceIgv: 190,
+          currentStock: 9,
+          minStock: 4,
+          reorderPoint: 8,
+          alertLevel: 'NORMAL',
+          availableEquivalents: [],
+        },
+      },
+    })
+
+    expect(wrapper.get('[data-testid="part-tax-preview"]').text()).toContain('Base imponible: S/ 161.02')
+    expect(wrapper.get('[data-testid="part-tax-preview"]').text()).toContain('IGV 18%: S/ 28.98')
+
+    await wrapper.get('#part-sale-price').setValue('236.00')
+    expect(wrapper.get('[data-testid="part-tax-preview"]').text()).toContain('Base imponible: S/ 200.00')
+    expect(wrapper.get('[data-testid="part-tax-preview"]').text()).toContain('IGV 18%: S/ 36.00')
+
+    await wrapper.get('form').trigger('submit')
+    const emitted = wrapper.emitted('save')?.[0]
+    expect(emitted).toBeTruthy()
+    expect(emitted?.[1]).toBe(7)
+    expect(emitted?.[0]).toMatchObject({
+      sku: 'TOY-PAD-523',
+      salePriceIgv: 236,
+      currentStock: 9,
+      compatibilities: null,
+    })
   })
 })

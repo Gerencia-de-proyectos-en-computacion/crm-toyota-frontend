@@ -7,6 +7,7 @@
 - `src/views/QuotesManagementView.vue` + `StockConflictModal.vue` + `RejectQuoteModal.vue`: Flujo completo `PENDIENTE -> APROBADA -> CERRADA | RECHAZADA`, visualización de fecha/hora de atención (`closedAt` en `America/Lima`) al cerrar la venta, resolución 1-clic de quiebres `HTTP 409` con equivalentes OEM/Denso/Aisin y reintegro de stock al anular aprobadas.
 - `src/views/CustomersVehiclesView.vue`: Alta y búsqueda con validación DNI/RUC, placas MTC y sello verificable de consentimiento **Ley N.º 29733**.
 - `src/views/InventoryForecastView.vue`: Dashboard de pronóstico Random Forest (`R²`, `WAPE`, `MAPE>0`, `ADI`), KPI de ventas perdidas por falta de stock (`EXT03`), recálculo batch y modal de ingreso rápido de compras (`EXT04`).
+- `src/views/CatalogPricingView.vue` + `src/components/PartPriceModal.vue`: Pantalla exclusiva `ADMIN` (`/catalogo-precios`) basada 1:1 en Google Stitch para gestionar el catálogo OEM/Equivalentes, el tarifario de mano de obra y precios de venta (`S/` inc. IGV 18%) con desglose de base imponible e IGV en tiempo real.
 - `src/views/SettingsView.vue`: Configuración en vivo de Marca Blanca (`workshop_settings`) con botón de restauración de placeholder neutro para visitas multi-taller.
 
 ## 2. Variables de Entorno (`VITE_*`)

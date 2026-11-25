@@ -1,0 +1,687 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Repuestos y Lista de Precios — [Nombre del Taller Automotriz]</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#15803D',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#B45309',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'info': '#0369A1',
+        'on-info': '#FFFFFF',
+        'info-container': '#E0F2FE',
+        'on-info-container': '#0C4A6E',
+        'whatsapp': '#16A34A',
+        'on-whatsapp': '#272727',
+        'light-primary': '#DC2626',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#FEE2E2',
+        'light-on-primary-container': '#991B1B',
+        'light-secondary': '#334155',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#E2E8F0',
+        'light-on-secondary-container': '#1E293B',
+        'light-tertiary': '#005E8D',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#E0F2FE',
+        'light-on-tertiary-container': '#003450',
+        'light-error': '#B91C1C',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FEE2E2',
+        'light-on-error-container': '#7F1D1D',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#0F172A',
+        'light-surface': '#F8FAFC',
+        'light-surface-dim': '#E2E8F0',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F1F5F9',
+        'light-surface-container': '#E2E8F0',
+        'light-surface-container-high': '#CBD5E1',
+        'light-surface-container-highest': '#94A3B8',
+        'light-on-surface': '#0F172A',
+        'light-surface-variant': '#F1F5F9',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+        'light-inverse-surface': '#0F172A',
+        'light-inverse-on-surface': '#F8FAFC',
+        'light-inverse-primary': '#FCA5A5',
+        'dark-primary': '#F87171',
+        'dark-on-primary': '#450A0A',
+        'dark-primary-container': '#991B1B',
+        'dark-on-primary-container': '#FEE2E2',
+        'dark-secondary': '#94A3B8',
+        'dark-on-secondary': '#0F172A',
+        'dark-secondary-container': '#334155',
+        'dark-on-secondary-container': '#F1F5F9',
+        'dark-tertiary': '#7DD3FC',
+        'dark-on-tertiary': '#082F49',
+        'dark-tertiary-container': '#0369A1',
+        'dark-on-tertiary-container': '#E0F2FE',
+        'dark-error': '#FCA5A5',
+        'dark-on-error': '#450A0A',
+        'dark-error-container': '#7F1D1D',
+        'dark-on-error-container': '#FEE2E2',
+        'dark-background': '#0F172A',
+        'dark-on-background': '#F8FAFC',
+        'dark-surface': '#0F172A',
+        'dark-surface-dim': '#020617',
+        'dark-surface-bright': '#1E293B',
+        'dark-surface-container-lowest': '#020617',
+        'dark-surface-container-low': '#1E293B',
+        'dark-surface-container': '#334155',
+        'dark-surface-container-high': '#475569',
+        'dark-surface-container-highest': '#64748B',
+        'dark-on-surface': '#F8FAFC',
+        'dark-surface-variant': '#1E293B',
+        'dark-on-surface-variant': '#CBD5E1',
+        'dark-outline': '#94A3B8',
+        'dark-outline-variant': '#334155',
+        'dark-inverse-surface': '#F8FAFC',
+        'dark-inverse-on-surface': '#0F172A',
+        'dark-inverse-primary': '#DC2626',
+      },
+      borderRadius: {
+        'xs': '4px',
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '10px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '16px',
+        'page-margin': '12px',
+      },
+      fontFamily: {
+        'display': ['"Alatsi"', 'sans-serif'],
+        'headline': ['"Instrument Sans"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['32px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '400' }],
+        'headline-lg': ['20px', { lineHeight: '26px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['16px', { lineHeight: '22px', letterSpacing: '-0.1px', fontWeight: '700' }],
+        'title-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['13px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '600' }],
+        'mono-md': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['11px', { lineHeight: '14px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Alatsi&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .pos-scroll::-webkit-scrollbar { width: 5px; height: 5px; }
+    .pos-scroll::-webkit-scrollbar-track { background: transparent; }
+    .pos-scroll::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-light-background text-light-on-surface font-body antialiased overflow-x-hidden">
+  <div class="min-h-[1024px] w-full flex bg-light-background" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Barra lateral izquierda colapsada (64px) -->
+    <aside id="pos-sidebar" aria-label="Navegación principal" class="w-16 shrink-0 min-h-[1024px] bg-light-surface-container-lowest border-r border-light-outline-variant flex flex-col justify-between py-gutter-sm transition-colors duration-state-change" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col items-center gap-gutter-sm px-gutter-xs">
+        <div class="w-full flex items-center justify-center h-9 mb-gutter-xs">
+          <button id="sidebar-toggle-btn" type="button" aria-label="Contraer o expandir menú lateral" title="Expandir menú" class="w-10 h-9 rounded-sm bg-light-primary text-light-on-primary flex items-center justify-center hover:opacity-90 transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">directions_car</span>
+          </button>
+        </div>
+
+        <nav class="w-full flex flex-col gap-gutter-xs" aria-label="Módulos Admin">
+          <a href="#cotizaciones" title="Cotizaciones POS" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">receipt_long</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Cotizaciones</span>
+          </a>
+
+          <a href="#vehiculos" title="Clientes y Vehículos" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">garage</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Vehículos</span>
+          </a>
+
+          <a href="#catalogo" aria-current="page" title="Catálogo y Lista de Precios" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm bg-light-primary-container text-light-on-primary-container font-label text-label-md">
+            <span class="material-symbols-outlined text-[20px] shrink-0" style="font-variation-settings: &#39;FILL&#39; 1;" aria-hidden="true">inventory_2</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Catálogo</span>
+          </a>
+
+          <a href="#reportes" title="Reportes y Pronóstico ML" class="nav-item flex items-center justify-center gap-gutter-sm h-10 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px] shrink-0" aria-hidden="true">bar_chart</span>
+            <span class="nav-label hidden truncate" data-design-text-token="label-md">Reportes</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="flex flex-col items-center gap-gutter-xs px-gutter-xs">
+        <a href="#configuracion" title="Configuración" class="nav-item w-full flex items-center justify-center gap-gutter-sm h-9 px-gutter-sm rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface font-label text-label-md transition-colors duration-state-change">
+          <span class="material-symbols-outlined text-[18px] shrink-0" aria-hidden="true">settings</span>
+          <span class="nav-label hidden truncate" data-design-text-token="label-md">Ajustes</span>
+        </a>
+        <button id="collapse-rail-btn" type="button" aria-label="Alternar barra lateral" title="Expandir barra" class="w-full flex items-center justify-center h-8 rounded-sm text-light-on-surface-variant hover:bg-light-surface-container-low hover:text-light-on-surface transition-colors duration-state-change">
+          <span id="collapse-icon" class="material-symbols-outlined text-[18px]" aria-hidden="true">chevron_right</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Contenedor Principal -->
+    <div class="flex-1 min-w-0 flex flex-col">
+
+      <!-- Barra superior (48px) -->
+      <header class="h-12 shrink-0 bg-light-surface-container-lowest border-b border-light-outline-variant px-gutter-lg flex items-center justify-between gap-gutter-md">
+        <div class="flex items-center gap-gutter-md min-w-0">
+          <div class="flex items-center gap-gutter-sm min-w-0">
+            <span class="w-2 h-5 rounded-xs bg-light-primary shrink-0" aria-hidden="true"></span>
+            <h1 class="font-headline text-headline-md text-light-on-surface truncate" data-design-text-token="headline-md">
+              [Nombre del Taller Automotriz]
+            </h1>
+          </div>
+
+          <span data-component-id="badge-admin" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center px-2 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase tracking-wider shrink-0">
+            <span data-design-text-token="label-sm">ADMIN</span>
+          </span>
+
+          <div class="hidden md:flex items-center gap-1.5 pl-gutter-sm border-l border-light-outline-variant text-light-on-surface-variant">
+            <span class="w-2 h-2 rounded-full bg-success shrink-0" aria-hidden="true"></span>
+            <span class="font-body text-body-sm" data-design-text-token="body-sm">Sesión activa: Farid Briceño (Admin) • Dirección Técnica</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-gutter-sm shrink-0">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface-variant font-label text-label-sm" data-design-text-token="label-sm">
+            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">lock</span>
+            Solo Administrador
+          </span>
+        </div>
+      </header>
+
+      <!-- Área Principal (1366x768, sin scroll horizontal) -->
+      <main class="flex-1 min-w-0 p-gutter-md flex flex-col gap-gutter-md">
+
+        <!-- 1. Cabecera de sección compacta -->
+        <section aria-label="Cabecera de catálogo" class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-gutter-lg py-gutter-sm flex items-center justify-between gap-gutter-md flex-wrap">
+          <div>
+            <h2 class="font-headline text-headline-lg text-light-on-surface" data-design-text-token="headline-lg">
+              Catálogo de Repuestos y Lista de Precios
+            </h2>
+            <p class="font-body text-body-sm text-light-on-surface-variant" data-design-text-token="body-sm">
+              Gestión exclusiva de Administrador • Todos los precios de venta en Soles (S/) incluyen IGV (18%)
+            </p>
+          </div>
+
+          <button id="new-part-btn" type="button" onclick="openEditModal()" data-component-id="button-new-part" data-component-type="button" data-component-variant="primary" class="inline-flex items-center gap-1.5 h-9 px-gutter-lg rounded-sm bg-light-primary text-light-on-primary font-label text-label-lg hover:opacity-90 transition-colors duration-state-change shrink-0">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">add</span>
+            <span data-design-text-token="label-lg">+ Nuevo Repuesto</span>
+          </button>
+        </section>
+
+        <!-- 2. Tarjeta principal con barra de pestañas, filtros y tabla -->
+        <section aria-label="Catálogo y tarifario" data-component-id="card-admin-catalog" data-component-type="card" data-component-variant="outlined" class="flex-1 min-h-0 bg-light-surface-container-lowest border border-light-outline-variant rounded flex flex-col overflow-hidden">
+          <!-- Barra de pestañas y filtros -->
+          <div class="px-gutter-md pt-gutter-sm border-b border-light-outline-variant flex items-center justify-between gap-gutter-md flex-wrap">
+            <!-- 2 Pestañas a la izquierda -->
+            <div role="tablist" aria-label="Tipo de catálogo" class="flex items-center gap-gutter-md">
+              <button type="button" role="tab" id="tab-parts" aria-selected="true" aria-controls="panel-parts" class="pb-gutter-sm border-b-2 border-light-primary text-light-primary font-label text-label-lg transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Repuestos OEM y Equivalentes (16)</span>
+              </button>
+              <button type="button" role="tab" id="tab-labor" aria-selected="false" aria-controls="panel-labor" class="pb-gutter-sm border-b-2 border-transparent text-light-on-surface-variant hover:text-light-on-surface font-label text-label-lg transition-colors duration-state-change">
+                <span data-design-text-token="label-lg">Tarifario de Mano de Obra (7)</span>
+              </button>
+            </div>
+
+            <!-- Pills de categoría y buscador a la derecha -->
+            <div class="flex items-center gap-gutter-sm flex-wrap pb-gutter-xs">
+              <div class="flex items-center gap-gutter-xs" role="group" aria-label="Filtrar por categoría">
+                <button type="button" data-cat="Todos" class="cat-pill px-2.5 py-1 rounded-full bg-light-secondary text-light-on-secondary font-label text-label-sm transition-colors duration-state-change">Todos</button>
+                <button type="button" data-cat="Filtros" class="cat-pill px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">Filtros</button>
+                <button type="button" data-cat="Frenos" class="cat-pill px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">Frenos</button>
+                <button type="button" data-cat="Aceites" class="cat-pill px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">Aceites</button>
+                <button type="button" data-cat="Encendido" class="cat-pill px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">Encendido</button>
+                <button type="button" data-cat="Embrague" class="cat-pill px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change">Embrague</button>
+              </div>
+
+              <label class="relative flex items-center w-64">
+                <span class="sr-only">Buscar SKU, código OEM o repuesto</span>
+                <span class="material-symbols-outlined text-[16px] text-light-on-surface-variant absolute left-2.5 pointer-events-none" aria-hidden="true">search</span>
+                <input id="catalog-search" type="search" placeholder="Buscar SKU, código OEM o repuesto..." class="w-full h-8 pl-8 pr-2 rounded-sm border border-light-outline-variant bg-light-surface-container-low font-body text-body-sm text-light-on-surface placeholder:text-light-on-surface-variant focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+              </label>
+            </div>
+          </div>
+
+          <!-- Panel 1: Repuestos OEM y Equivalentes (Tabla de 7 columnas) -->
+          <div id="panel-parts" role="tabpanel" aria-labelledby="tab-parts" class="pos-scroll overflow-y-auto max-h-[520px]">
+            <table class="w-full border-collapse text-left table-fixed">
+              <thead class="sticky top-0 z-10 bg-light-surface-container-low border-b border-light-outline-variant">
+                <tr>
+                  <th scope="col" class="w-[15%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">SKU / OEM Ref</th>
+                  <th scope="col" class="w-[24%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Repuesto &amp; Marca</th>
+                  <th scope="col" class="w-[18%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Modelos Compatibles</th>
+                  <th scope="col" class="w-[12%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Stock / Mínimo</th>
+                  <th scope="col" class="w-[12%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Precio Venta (inc. IGV)</th>
+                  <th scope="col" class="w-[10%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Valor Base</th>
+                  <th scope="col" class="w-[9%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Acción</th>
+                </tr>
+              </thead>
+              <tbody id="parts-tbody" class="divide-y divide-light-outline-variant">
+                <!-- Row 1 -->
+                <tr data-cat="Frenos" data-search="TOY-PAD-523 04465-0D150 Pastillas de Freno Delanteras TOYOTA OEM Yaris" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate" data-design-text-token="mono-md">TOY-PAD-523</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate" data-design-text-token="mono-sm">04465-0D150</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate" data-design-text-token="title-sm">Pastillas de Freno Delanteras</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase">TOYOTA OEM</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate">Yaris (14–24), Etios</td>
+                  <td class="px-gutter-sm py-2 align-middle font-mono text-mono-sm tabular-nums text-light-on-surface">9 u. / mín. 4</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface"><strong>S/ 190.00</strong></td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-sm tabular-nums text-light-on-surface-variant">S/ 161.02</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="openEditModal({sku:&#39;TOY-PAD-523&#39;, oem:&#39;04465-0D150&#39;, brand:&#39;TOYOTA OEM&#39;, cat:&#39;Frenos&#39;, name:&#39;Pastillas de Freno Delanteras&#39;, models:&#39;Yaris (14–24), Etios&#39;, price:&#39;190.00&#39;, min:&#39;4&#39;})" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container">
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">edit</span>
+                      <span>Editar</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr data-cat="Filtros" data-search="TOY-FIL-041 04152-YZZA6 Filtro de Aceite Cartucho TOYOTA OEM Yaris Corolla" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate">TOY-FIL-041</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate">04152-YZZA6</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Filtro de Aceite Cartucho</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase">TOYOTA OEM</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate">Yaris, Corolla, RAV4</td>
+                  <td class="px-gutter-sm py-2 align-middle font-mono text-mono-sm tabular-nums text-light-on-surface">18 u. / mín. 8</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface"><strong>S/ 45.00</strong></td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-sm tabular-nums text-light-on-surface-variant">S/ 38.14</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="openEditModal({sku:&#39;TOY-FIL-041&#39;, oem:&#39;04152-YZZA6&#39;, brand:&#39;TOYOTA OEM&#39;, cat:&#39;Filtros&#39;, name:&#39;Filtro de Aceite Cartucho&#39;, models:&#39;Yaris, Corolla, RAV4&#39;, price:&#39;45.00&#39;, min:&#39;8&#39;})" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container">
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">edit</span>
+                      <span>Editar</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr data-cat="Filtros" data-search="DEN-AIR-178 17801-21060 Filtro de Aire Motor DENSO Yaris" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate">DEN-AIR-178</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate">17801-21060</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Filtro de Aire Motor 1.5</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase">DENSO</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate">Yaris (16–24), Prius C</td>
+                  <td class="px-gutter-sm py-2 align-middle font-mono text-mono-sm tabular-nums text-warning">2 u. / mín. 6</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface"><strong>S/ 85.00</strong></td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-sm tabular-nums text-light-on-surface-variant">S/ 72.03</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="openEditModal({sku:&#39;DEN-AIR-178&#39;, oem:&#39;17801-21060&#39;, brand:&#39;DENSO&#39;, cat:&#39;Filtros&#39;, name:&#39;Filtro de Aire Motor 1.5&#39;, models:&#39;Yaris (16–24), Prius C&#39;, price:&#39;85.00&#39;, min:&#39;6&#39;})" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container">
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">edit</span>
+                      <span>Editar</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr data-cat="Aceites" data-search="TOY-OIL-530 08880-83265 Aceite Sintético 5W-30 Galón 4L TOYOTA OEM" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate">TOY-OIL-530</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate">08880-83265</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Aceite Sintético 5W-30 Galón 4L</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase">TOYOTA OEM</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate">Toda la línea gasolina</td>
+                  <td class="px-gutter-sm py-2 align-middle font-mono text-mono-sm tabular-nums text-light-on-surface">24 u. / mín. 10</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface"><strong>S/ 165.00</strong></td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-sm tabular-nums text-light-on-surface-variant">S/ 139.83</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="openEditModal({sku:&#39;TOY-OIL-530&#39;, oem:&#39;08880-83265&#39;, brand:&#39;TOYOTA OEM&#39;, cat:&#39;Aceites&#39;, name:&#39;Aceite Sintético 5W-30 Galón 4L&#39;, models:&#39;Toda la línea gasolina&#39;, price:&#39;165.00&#39;, min:&#39;10&#39;})" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container">
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">edit</span>
+                      <span>Editar</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 5 -->
+                <tr data-cat="Encendido" data-search="TOY-BUJ-909 90919-01275 Bujías Iridium TOYOTA OEM Corolla RAV4" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate">TOY-BUJ-909</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate">90919-01275</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Bujías Iridium SC16HR11 (Set x4)</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-primary-container text-light-on-primary-container font-label text-label-sm uppercase">TOYOTA OEM</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate">Corolla, RAV4, C-HR</td>
+                  <td class="px-gutter-sm py-2 align-middle font-mono text-mono-sm tabular-nums text-light-error">2 u. / mín. 8</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface"><strong>S/ 220.00</strong></td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-sm tabular-nums text-light-on-surface-variant">S/ 186.44</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="openEditModal({sku:&#39;TOY-BUJ-909&#39;, oem:&#39;90919-01275&#39;, brand:&#39;TOYOTA OEM&#39;, cat:&#39;Encendido&#39;, name:&#39;Bujías Iridium SC16HR11 (Set x4)&#39;, models:&#39;Corolla, RAV4, C-HR&#39;, price:&#39;220.00&#39;, min:&#39;8&#39;})" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container">
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">edit</span>
+                      <span>Editar</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 6 -->
+                <tr data-cat="Embrague" data-search="AIS-CLU-312 31250-0K204 Kit de Embrague 275mm AISIN Hilux" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate">AIS-CLU-312</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate">31250-0K204</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Kit de Embrague 275mm</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-light-secondary-container text-light-on-secondary-container font-label text-label-sm uppercase">AISIN</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate">Hilux 2.4 / 2.8 (16–24)</td>
+                  <td class="px-gutter-sm py-2 align-middle font-mono text-mono-sm tabular-nums text-warning">3 u. / mín. 4</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface"><strong>S/ 890.00</strong></td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-sm tabular-nums text-light-on-surface-variant">S/ 754.24</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="openEditModal({sku:&#39;AIS-CLU-312&#39;, oem:&#39;31250-0K204&#39;, brand:&#39;AISIN&#39;, cat:&#39;Embrague&#39;, name:&#39;Kit de Embrague 275mm&#39;, models:&#39;Hilux 2.4 / 2.8 (16–24)&#39;, price:&#39;890.00&#39;, min:&#39;4&#39;})" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container">
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">edit</span>
+                      <span>Editar</span>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 7 -->
+                <tr data-cat="Frenos" data-search="ALT-PAD-0D1 04465-0D150 Pastillas Freno Económicas ALTERNATIVO Yaris" class="hover:bg-light-surface-container-low transition-colors duration-state-change">
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-mono text-mono-md text-light-on-surface truncate">ALT-PAD-0D1</div>
+                    <div class="font-mono text-mono-sm text-light-on-surface-variant truncate">04465-0D150</div>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle">
+                    <div class="font-title text-title-sm text-light-on-surface truncate">Pastillas Freno Delanteras Eco</div>
+                    <span class="inline-flex items-center mt-0.5 px-1.5 py-0.5 rounded-xs bg-info-container text-on-info-container font-label text-label-sm uppercase">ALTERNATIVO</span>
+                  </td>
+                  <td class="px-gutter-sm py-2 align-middle font-body text-body-sm text-light-on-surface-variant truncate">Yaris (14–22), Etios</td>
+                  <td class="px-gutter-sm py-2 align-middle font-mono text-mono-sm tabular-nums text-light-on-surface">12 u. / mín. 5</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-md tabular-nums text-light-on-surface"><strong>S/ 115.00</strong></td>
+                  <td class="px-gutter-sm py-2 align-middle text-right font-mono text-mono-sm tabular-nums text-light-on-surface-variant">S/ 97.46</td>
+                  <td class="px-gutter-sm py-2 align-middle text-right">
+                    <button type="button" onclick="openEditModal({sku:&#39;ALT-PAD-0D1&#39;, oem:&#39;04465-0D150&#39;, brand:&#39;ALTERNATIVO&#39;, cat:&#39;Frenos&#39;, name:&#39;Pastillas Freno Delanteras Eco&#39;, models:&#39;Yaris (14–22), Etios&#39;, price:&#39;115.00&#39;, min:&#39;5&#39;})" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container">
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">edit</span>
+                      <span>Editar</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Panel 2: Tarifario de Mano de Obra (oculto por defecto) -->
+          <div id="panel-labor" role="tabpanel" aria-labelledby="tab-labor" hidden class="pos-scroll overflow-y-auto max-h-[520px]">
+            <table class="w-full border-collapse text-left table-fixed">
+              <thead class="sticky top-0 z-10 bg-light-surface-container-low border-b border-light-outline-variant">
+                <tr>
+                  <th scope="col" class="w-[15%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Código</th>
+                  <th scope="col" class="w-[35%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Servicio de Mano de Obra</th>
+                  <th scope="col" class="w-[18%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Tiempo Estándar</th>
+                  <th scope="col" class="w-[12%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Tarifa (inc. IGV)</th>
+                  <th scope="col" class="w-[11%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Valor Base</th>
+                  <th scope="col" class="w-[9%] px-gutter-sm py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase text-right">Acción</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr class="hover:bg-light-surface-container-low">
+                  <td class="px-gutter-sm py-2 font-mono text-mono-md text-light-on-surface">MO-MANT-40K</td>
+                  <td class="px-gutter-sm py-2 font-title text-title-sm text-light-on-surface">Mantenimiento Preventivo 40,000 km</td>
+                  <td class="px-gutter-sm py-2 font-body text-body-sm text-light-on-surface-variant">1.5 horas</td>
+                  <td class="px-gutter-sm py-2 text-right font-mono text-mono-md tabular-nums text-light-on-surface"><strong>S/ 80.00</strong></td>
+                  <td class="px-gutter-sm py-2 text-right font-mono text-mono-sm tabular-nums text-light-on-surface-variant">S/ 67.80</td>
+                  <td class="px-gutter-sm py-2 text-right">
+                    <button type="button" class="inline-flex items-center gap-1 h-7 px-2.5 rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-sm hover:bg-light-surface-container">
+                      <span class="material-symbols-outlined text-[14px]">edit</span>
+                      <span>Editar</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL: Editar Precio y Datos del Repuesto -->
+  <div id="edit-part-modal" role="dialog" aria-modal="true" aria-labelledby="modal-edit-title" class="hidden fixed inset-0 z-50 bg-light-on-surface/50 flex items-center justify-center p-gutter-lg">
+    <div class="w-full max-w-2xl bg-light-surface-container-lowest border border-light-outline-variant rounded shadow-lg overflow-hidden">
+      <header class="px-gutter-lg py-gutter-md border-b border-light-outline-variant bg-light-surface-container-low flex items-center justify-between">
+        <div class="flex items-center gap-gutter-sm">
+          <span class="material-symbols-outlined text-[20px] text-light-primary" aria-hidden="true">edit_note</span>
+          <h3 id="modal-edit-title" class="font-headline text-headline-md text-light-on-surface">
+            Editar Precio y Datos del Repuesto
+          </h3>
+        </div>
+        <button type="button" onclick="closeEditModal()" aria-label="Cerrar modal" class="w-7 h-7 rounded-xs text-light-on-surface-variant hover:bg-light-surface-container inline-flex items-center justify-center">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </header>
+
+      <div class="p-gutter-lg flex flex-col gap-gutter-md">
+        <!-- Grilla de 2 columnas -->
+        <div class="grid grid-cols-2 gap-gutter-md">
+          <label class="flex flex-col gap-gutter-xs">
+            <span class="font-label text-label-md text-light-on-surface">SKU</span>
+            <input id="m-sku" type="text" value="TOY-PAD-523" class="h-8 px-2.5 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-mono text-mono-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+          </label>
+          <label class="flex flex-col gap-gutter-xs">
+            <span class="font-label text-label-md text-light-on-surface">Código OEM Común (agrupar equivalentes)</span>
+            <input id="m-oem" type="text" value="04465-0D150" class="h-8 px-2.5 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-mono text-mono-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+          </label>
+          <label class="flex flex-col gap-gutter-xs">
+            <span class="font-label text-label-md text-light-on-surface">Marca</span>
+            <select id="m-brand" class="h-8 px-2.5 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+              <option value="TOYOTA OEM">TOYOTA OEM</option>
+              <option value="DENSO">DENSO</option>
+              <option value="AISIN">AISIN</option>
+              <option value="ALTERNATIVO">ALTERNATIVO</option>
+            </select>
+          </label>
+          <label class="flex flex-col gap-gutter-xs">
+            <span class="font-label text-label-md text-light-on-surface">Categoría</span>
+            <select id="m-cat" class="h-8 px-2.5 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+              <option value="Frenos">Frenos</option>
+              <option value="Filtros">Filtros</option>
+              <option value="Aceites">Aceites</option>
+              <option value="Encendido">Encendido</option>
+              <option value="Embrague">Embrague</option>
+            </select>
+          </label>
+          <label class="col-span-2 flex flex-col gap-gutter-xs">
+            <span class="font-label text-label-md text-light-on-surface">Nombre del Repuesto</span>
+            <input id="m-name" type="text" value="Pastillas de Freno Delanteras" class="h-8 px-2.5 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+          </label>
+          <label class="col-span-2 flex flex-col gap-gutter-xs">
+            <span class="font-label text-label-md text-light-on-surface">Modelos Toyota Compatibles</span>
+            <input id="m-models" type="text" value="Yaris (14–24), Etios" class="h-8 px-2.5 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+          </label>
+        </div>
+
+        <!-- Bloque destacado de Precio de Venta -->
+        <div class="p-gutter-md rounded-sm bg-light-surface-container-low border border-light-outline-variant grid grid-cols-2 gap-gutter-md items-start">
+          <div class="flex flex-col gap-gutter-xs">
+            <label for="m-price" class="font-label text-label-md text-light-on-surface">Precio de Venta S/ (inc. IGV 18%)</label>
+            <input id="m-price" type="number" step="0.01" value="190.00" class="h-9 px-3 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-mono text-mono-md tabular-nums text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <span id="m-tax-preview" class="font-mono text-mono-sm text-light-on-surface-variant">Base imponible: S/ 161.02 • IGV 18%: S/ 28.98</span>
+          </div>
+          <div class="flex flex-col gap-gutter-xs">
+            <label for="m-min" class="font-label text-label-md text-light-on-surface">Stock Mínimo de Alerta</label>
+            <input id="m-min" type="number" min="1" value="4" class="h-9 px-3 rounded-sm border border-light-outline-variant bg-light-surface-container-lowest font-mono text-mono-md tabular-nums text-light-on-surface focus:border-light-primary focus:ring-1 focus:ring-light-primary">
+            <span class="font-body text-body-sm text-light-on-surface-variant">Activa semáforo amarillo al alcanzar este umbral</span>
+          </div>
+        </div>
+      </div>
+
+      <footer class="px-gutter-lg py-gutter-sm border-t border-light-outline-variant bg-light-surface-container-low flex justify-end gap-gutter-sm">
+        <button type="button" onclick="closeEditModal()" class="h-9 px-gutter-md rounded-sm bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-md hover:bg-light-surface-container">
+          Cancelar
+        </button>
+        <button type="button" onclick="closeEditModal(); showToast(&#39;Cambios guardados en la lista de precios&#39;)" class="h-9 px-gutter-lg rounded-sm bg-light-primary text-light-on-primary font-label text-label-md hover:opacity-90">
+          Guardar Cambios
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="pos-toast" role="status" aria-live="polite" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-gutter-lg py-gutter-sm rounded-sm bg-light-inverse-surface text-light-inverse-on-surface font-label text-label-md flex items-center gap-gutter-sm">
+    <span class="material-symbols-outlined text-[16px] text-success" aria-hidden="true">check_circle</span>
+    <span id="pos-toast-text">Guardado</span>
+  </div>
+
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('pos-toast');
+      document.getElementById('pos-toast-text').textContent = msg;
+      t.classList.remove('hidden');
+      clearTimeout(window.__tt);
+      window.__tt = setTimeout(() => t.classList.add('hidden'), 2500);
+    }
+
+    function updateTaxPreview() {
+      const p = parseFloat(document.getElementById('m-price').value) || 0;
+      const base = p / 1.18;
+      const igv = p - base;
+      document.getElementById('m-tax-preview').textContent = `Base imponible: S/ ${base.toFixed(2)} • IGV 18%: S/ ${igv.toFixed(2)}`;
+    }
+    document.getElementById('m-price').addEventListener('input', updateTaxPreview);
+
+    window.openEditModal = function(data) {
+      if (data) {
+        document.getElementById('m-sku').value = data.sku;
+        document.getElementById('m-oem').value = data.oem;
+        document.getElementById('m-brand').value = data.brand;
+        document.getElementById('m-cat').value = data.cat;
+        document.getElementById('m-name').value = data.name;
+        document.getElementById('m-models').value = data.models;
+        document.getElementById('m-price').value = data.price;
+        document.getElementById('m-min').value = data.min;
+      } else {
+        document.getElementById('m-sku').value = '';
+        document.getElementById('m-oem').value = '';
+        document.getElementById('m-name').value = '';
+        document.getElementById('m-models').value = '';
+        document.getElementById('m-price').value = '0.00';
+        document.getElementById('m-min').value = '4';
+      }
+      updateTaxPreview();
+      document.getElementById('edit-part-modal').classList.remove('hidden');
+    };
+    window.closeEditModal = function() {
+      document.getElementById('edit-part-modal').classList.add('hidden');
+    };
+
+    // Tabs
+    const tabParts = document.getElementById('tab-parts');
+    const tabLabor = document.getElementById('tab-labor');
+    const panelParts = document.getElementById('panel-parts');
+    const panelLabor = document.getElementById('panel-labor');
+
+    tabParts.addEventListener('click', () => {
+      tabParts.classList.add('border-light-primary', 'text-light-primary');
+      tabParts.classList.remove('border-transparent', 'text-light-on-surface-variant');
+      tabLabor.classList.remove('border-light-primary', 'text-light-primary');
+      tabLabor.classList.add('border-transparent', 'text-light-on-surface-variant');
+      panelParts.hidden = false; panelLabor.hidden = true;
+    });
+    tabLabor.addEventListener('click', () => {
+      tabLabor.classList.add('border-light-primary', 'text-light-primary');
+      tabLabor.classList.remove('border-transparent', 'text-light-on-surface-variant');
+      tabParts.classList.remove('border-light-primary', 'text-light-primary');
+      tabParts.classList.add('border-transparent', 'text-light-on-surface-variant');
+      panelLabor.hidden = false; panelParts.hidden = true;
+    });
+
+    // Category filter & search
+    let activeCat = 'Todos';
+    const catPills = document.querySelectorAll('.cat-pill');
+    const searchInput = document.getElementById('catalog-search');
+
+    function filterParts() {
+      const q = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('#parts-tbody tr').forEach(r => {
+        const c = r.getAttribute('data-cat');
+        const txt = (r.getAttribute('data-search') || '').toLowerCase();
+        r.style.display = ((activeCat === 'Todos' || c === activeCat) && (!q || txt.includes(q))) ? '' : 'none';
+      });
+    }
+
+    catPills.forEach(p => {
+      p.addEventListener('click', () => {
+        activeCat = p.getAttribute('data-cat');
+        catPills.forEach(btn => {
+          const sel = btn === p;
+          btn.className = sel
+            ? 'cat-pill px-2.5 py-1 rounded-full bg-light-secondary text-light-on-secondary font-label text-label-sm transition-colors duration-state-change'
+            : 'cat-pill px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface-variant hover:bg-light-surface-container font-label text-label-sm transition-colors duration-state-change';
+        });
+        filterParts();
+      });
+    });
+    searchInput.addEventListener('input', filterParts);
+  </script>
+
+
+</body></html>

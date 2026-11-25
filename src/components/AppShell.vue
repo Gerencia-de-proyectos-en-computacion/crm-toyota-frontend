@@ -25,6 +25,7 @@ const allNavItems: NavItem[] = [
   { to: '/cotizaciones', icon: 'receipt_long', label: 'Cotizaciones', roles: ['ADMIN', 'RECEPCIONISTA'] },
   { to: '/clientes-vehiculos', icon: 'garage', label: 'Clientes y Autos', roles: ['ADMIN', 'RECEPCIONISTA'] },
   { to: '/inventario-ml', icon: 'inventory_2', label: 'Inventario & ML', roles: ['ADMIN', 'ALMACEN', 'RECEPCIONISTA'] },
+  { to: '/catalogo-precios', icon: 'sell', label: 'Catálogo & Precios', roles: ['ADMIN'] },
   { to: '/configuracion', icon: 'settings', label: 'Marca Blanca', roles: ['ADMIN'] },
 ]
 
@@ -134,6 +135,13 @@ function handleLogout() {
         </div>
 
         <div class="flex items-center gap-gutter-sm shrink-0">
+          <span
+            v-if="route.path === '/catalogo-precios'"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-light-surface-container-low border border-light-outline-variant text-light-on-surface-variant font-label text-label-sm"
+          >
+            <span class="material-symbols-outlined text-[14px]">lock</span>
+            <span>Solo Administrador</span>
+          </span>
           <span
             v-if="route.path === '/pos'"
             class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success-container text-on-success-container font-label text-label-sm"

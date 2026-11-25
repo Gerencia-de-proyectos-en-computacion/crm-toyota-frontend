@@ -5,6 +5,7 @@ import PosCounterView from '@/views/PosCounterView.vue'
 import QuotesManagementView from '@/views/QuotesManagementView.vue'
 import CustomersVehiclesView from '@/views/CustomersVehiclesView.vue'
 import InventoryForecastView from '@/views/InventoryForecastView.vue'
+import CatalogPricingView from '@/views/CatalogPricingView.vue'
 import SettingsView from '@/views/SettingsView.vue'
 
 const router = createRouter({
@@ -34,6 +35,12 @@ const router = createRouter({
       name: 'forecast',
       component: InventoryForecastView,
       meta: { roles: ['ADMIN', 'ALMACEN', 'RECEPCIONISTA'] },
+    },
+    {
+      path: '/catalogo-precios',
+      name: 'catalog-pricing',
+      component: CatalogPricingView,
+      meta: { roles: ['ADMIN'] },
     },
     {
       path: '/configuracion',
